@@ -1,0 +1,20 @@
+@import "../base/base.scss";
+
+.create-notification-page {
+  height: 100%;
+  min-height: calc(100vh);
+  background-color: $color-bg-2;
+  padding: 1.6rem;
+}
+
+.create-notification {
+  &__heading {
+    font-family: "Inter", sans-serif;
+    font-size: 2.2rem;
+    color: $color-grey-dark;
+    display: block;
+    width: 100%;
+    max-width: $default-max-width;
+    margin: 3.2rem auto 4.8rem auto;
+  }
+}

@@ -1,0 +1,79 @@
+@import "../base/base.scss";
+
+.notification-card {
+  &__container {
+    padding: 1.4rem;
+    width: 100%;
+    max-width: $default-max-width;
+    background-color: $color-white;
+    margin: 0 auto;
+    border-radius: 1rem;
+    border: 1px solid $color-strokeLine;
+    backface-visibility: hidden;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  &__title {
+    width: 70%;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $color-notification-title;
+  }
+
+  &__date {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.1rem;
+    font-weight: light;
+    color: $color-grey-light;
+    margin: 0.8rem 0 1.6rem 0;
+  }
+
+  &__message {
+    //  font-family: "Inter", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.6rem;
+    color: $color-notification-description;
+  }
+
+  &__indicator {
+    display: block;
+    width: 8.5rem;
+    padding: 0.4rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: light;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 0.5rem;
+
+    position: absolute;
+    right: 1.4rem;
+
+    &--important {
+      background-color: rgba($color-important, 0.2);
+      color: $color-important;
+    }
+
+    &--critical {
+      background-color: rgba($color-critical, 0.2);
+      color: $color-critical;
+    }
+  }
+
+  &__link {
+    &,
+    &:link,
+    &:visited {
+      font-size: 1.6rem;
+      text-decoration: none;
+      color: $color-link;
+      margin-top: 1.6rem;
+      display: inline-block;
+      cursor: pointer;
+    }
+  }
+}

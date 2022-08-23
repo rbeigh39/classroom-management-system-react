@@ -1,0 +1,30 @@
+@import "../base/base.scss";
+
+.work-in-progress {
+  height: calc(100vh - 6rem);
+
+  //   background-color: orange;
+
+  &__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__image {
+    height: 15rem;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__message {
+    width: 75vw;
+    max-width: 40rem;
+    text-align: center;
+    margin-top: 4rem;
+    font-family: "Inter", sans-serif;
+    font-size: 1.8rem;
+    color: $color-primary;
+  }
+}

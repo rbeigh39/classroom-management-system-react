@@ -1,0 +1,47 @@
+@import "../base/base.scss";
+
+.header {
+  &__container {
+    width: 100%;
+    height: 6rem;
+    background-image: linear-gradient(
+        to bottom right,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../../images/pattern_2x.png);
+
+    background-size: cover;
+    background-position: top;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo-container {
+    height: 3.5rem;
+  }
+
+  &__logo {
+    height: 100%;
+  }
+
+  &__title {
+    font-family: "Righteous", cursive;
+    font-size: 2rem;
+    color: $color-white;
+    //  letter-spacing: 1px;
+    font-weight: lighter;
+    transform: translateX(-1.5rem);
+  }
+
+  &__menu-icon-box {
+  }
+
+  &__menu-icon {
+    filter: invert(100%) sepia(26%) saturate(3375%) hue-rotate(268deg)
+      brightness(133%) contrast(94%);
+    display: none;
+  }
+}

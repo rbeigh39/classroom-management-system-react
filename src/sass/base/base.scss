@@ -1,0 +1,47 @@
+@import "../abstract/variables.scss";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+*::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba($color-primary, 0.3);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba($color-primary, 1);
+}
+
+@media (min-width: 400px) {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+}

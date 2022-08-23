@@ -1,0 +1,36 @@
+@import "../base/base.scss";
+
+.create-header {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > * {
+      width: 33.33%;
+    }
+  }
+
+  &__icon-close {
+    height: 3.5rem;
+  }
+
+  &__icon-close-container {
+    display: flex;
+  }
+
+  &__logo-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__logo {
+    height: 4rem;
+  }
+
+  &__button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}

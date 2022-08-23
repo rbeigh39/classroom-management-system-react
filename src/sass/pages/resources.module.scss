@@ -1,0 +1,14 @@
+@import "../base/base.scss";
+
+.resources-page {
+  background-color: $color-bg;
+  width: 100%;
+  height: calc(100vh - 11rem);
+  padding: 1.6rem;
+  overflow: scroll;
+  padding-bottom: 20rem;
+}
+
+.resources-container {
+  margin-top: 1.6rem;
+}

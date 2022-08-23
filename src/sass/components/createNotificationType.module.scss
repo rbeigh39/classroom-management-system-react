@@ -1,0 +1,49 @@
+@import "../base/base.scss";
+
+.notification-type {
+  &__container {
+    background-color: orange;
+    width: 100%;
+    max-width: $default-max-width;
+    margin: auto;
+    border: 1px solid $color-strokeLine;
+    background-color: $color-white;
+    border-radius: 0.7rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: relative;
+  }
+
+  &__active-bg {
+    display: block;
+    width: calc((100% - 3.2rem) / 3);
+    background-color: $color-grey-veryLight;
+    align-self: center;
+    padding: 0.4rem 0;
+    position: absolute;
+  }
+
+  &__element {
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__radio-label {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    color: $color-grey-light;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+  }
+
+  &__radio {
+    display: none;
+    visibility: hidden;
+  }
+
+  &__radio:checked ~ &__active-bg {
+    left: 0.8rem;
+    background-color: orange;
+  }
+}

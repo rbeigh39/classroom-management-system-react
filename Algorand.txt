@@ -1,0 +1,46 @@
+Proof of stake: 
+Proof-of-stake is a cryptocurrency consensus mechanism for processing transactions and creating new blocks in a blockchain. A consensus mechanism is a method for validating entries into a distributed database and keeping the database secure.
+
+What Is Algorand?
+Algorand is a decentralized network built to solve the Blockchain Trilemma of achieving speed, security, and decentralization simultaneously.
+
+Algorand is a permissionless, open-source blockchain network upon which anyone can build.
+
+Algorand is designed to be a payments-focused network with rapid transactions and a strong focus on achieving near-instant finality — that means processing over 1,000 transactions per second (TPS) and achieving transaction finality in less than five seconds.
+
+Consensus mechanism:
+Algorand uses a Proof-of-Stake (PoS) consensus mechanism, and distributes validator rewards to all holders of its native ALGO cryptocurrency. 
+Algorand is capable of managing the high-throughput requirements of widespread global usage and a variety of use cases.
+
+Algorand Protocol Structure:
+Algorand has a unique two-tiered blockchain structure. The base layer supports smart contracts, asset creation, and atomic swaps between assets. All of these processes take place on Layer 1 of the Algorand blockchain, which helps ensure security and compatibility.
+
+On this first layer of the Algorand network, platforms and users can create ASAs that represent new or existing tokens on the Algorand blockchain. This is similar to how ERC-20 tokens function on the Ethereum network. 
+
+With regard to security, simple smart contracts on the Algorand platform execute as Layer-1 Algorand Smart Contracts (ASC1s), which means they maintain the same level of security as the consensus protocol itself.
+
+The second layer of Algorand is reserved for more complex smart contracts and dApp development. It’s this bifurcation of the network, between Layer 1 and Layer 2, that allows Algorand to process transactions so efficiently.
+
+With more complex smart contracts taking place off-chain, simple transactions can be processed more quickly on Layer 1 without being bogged down by larger, more complex smart contracts.
+
+
+
+Algorand Staking Mechanism: Pure Proof of Stake
+Algorand uses a unique variation of Proof of Stake called Pure Proof of Stake (PPoS). PPoS is a highly democratized PoS consensus mechanism with a low minimum staking requirement for participating in and securing the network
+
+only one ALGO coin is needed to participate. By contrast, Ethereum 2.0 requires a minimum stake of 32 ether (ETH), an amount which establishes a much higher barrier to entry for users.
+
+Conversely, a low minimum staking requirement may adversely affect network security, as network participants may be less incentivized to behave optimally when they don’t have substantial value staked on the network.
+
+
+
+Algorand Block Production Under PPoS
+On Proof-of-Stake networks, validator nodes are selected at random to confirm the transaction data in a block. Algorand’s PPoS consensus mechanism utilizes a two-phase block production process consisting of proposing and voting. Any member of the Algorand network can participate in the proposing and voting procedure by staking ALGO and generating a valid participation key to become a Participation Node. Participation Nodes are coordinated by another type of Algorand network node — Relay Nodes — which facilitate communication among Participation Nodes and do not directly participate in proposing or voting.
+
+In the proposal phase, a block leader is selected to propose the current block. Block leaders are selected via Algorand’s verifiable random function (VRF) — a provably random mechanism that selects nodes randomly, but weighted by the relative size of their respective stakes. The block leader is secretly assigned by means of their private participation key, which means that only the block leader knows that they have been assigned to propose a block. The VRF supplies a cryptographic proof that allows the block leader to easily and verifiably prove their status as the current block leader. This methodology provides additional network security because malicious actors have no way of knowing who the randomly designated block leader is before the block is actually proposed. This reduces the opportunity to target the block leader in an attempt to compromise the network.
+
+Following the block proposal, we arrive at the voting stage where Participation Nodes are randomly elected to a committee responsible for ensuring that no double-spend, overspend, or other problem has occurred in the current block. If a quorum agrees that all is well, the block is added to the blockchain. If malicious activity is detected, the network goes into recovery mode whereby the block is discarded and a new block leader is elected.
+
+Algorand, somewhat controversially, does not make use of slashing. This means that a node cannot have its staked balance reduced for proposing a bad block. Instead, the network enters recovery mode and continues on. While this promotes speed and efficiency by quickly moving on from errors, some have criticized this facet of Algorand’s block production system as it lacks any mechanism to punish dishonest behavior on the network.
+
+With this method of block production, two blocks cannot be proposed simultaneously for the same slot, which means that there should never be a fork of the blockchain. Once a block appears, it has already achieved consensus and users can rely on it immediately, eliminating a good deal of network latency.
