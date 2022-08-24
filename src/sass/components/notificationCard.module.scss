@@ -22,7 +22,8 @@
     font-family: "Poppins", sans-serif;
     font-size: 1.6rem;
     font-weight: 500;
-    color: $color-notification-title;
+    // color: $color-notification-title;
+    color: $color-grey-medium;
   }
 
   &__date {
@@ -68,7 +69,7 @@
     &,
     &:link,
     &:visited {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       text-decoration: none;
       color: $color-link;
       margin-top: 1.6rem;

@@ -18,7 +18,7 @@ const FAB = () => {
       <ul className={classes["fab__list"]}>
         <li className={classes["fab__list-item"]}>
           <FABLinkItem
-            link="/create-resource"
+            link="/create-resources"
             icon="icon_resources_2.svg"
             title="Resource"
           />

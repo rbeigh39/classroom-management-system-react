@@ -70,9 +70,12 @@
 
   &__download-icon {
     height: 1.3rem;
-    filter: brightness(0) saturate(100%) invert(69%) sepia(14%) saturate(1292%)
-      hue-rotate(90deg) brightness(95%) contrast(84%);
     margin-right: 0.8rem;
+    // filter: brightness(0) saturate(100%) invert(69%) sepia(14%) saturate(1292%)
+    //   hue-rotate(90deg) brightness(95%) contrast(84%);
+
+    filter: brightness(0) saturate(100%) invert(55%) sepia(43%) saturate(698%)
+      hue-rotate(105deg) brightness(90%) contrast(91%);
   }
 
   &__download-link {
@@ -81,8 +84,8 @@
     &:visited {
       text-decoration: none;
       font-family: "Poppins", sans-serif;
-      font-size: 1.6rem;
-      color: $color-primary;
+      font-size: 1.5rem;
+      color: $color-link;
       cursor: pointer;
     }
   }
@@ -91,7 +94,7 @@
     &,
     &:link,
     &:visited {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       text-decoration: none;
       color: $color-link;
       margin-top: 1.6rem;

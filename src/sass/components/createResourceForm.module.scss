@@ -1,10 +1,10 @@
 @import "../base/base.scss";
 
-.notification-form {
+.resource-form {
   &__group {
     width: 100%;
     max-width: $default-max-width;
-    margin: 2.4rem auto;
+    margin: 3.2rem auto;
   }
 
   &__input-label {
@@ -43,6 +43,16 @@
 
     &--link {
       color: $color-link;
+    }
+
+    &--attachment {
+      color: $color-link;
+      cursor: pointer;
+
+      &::file-selector-button {
+        display: none;
+        visibility: hidden;
+      }
     }
   }
 }

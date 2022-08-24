@@ -1,6 +1,6 @@
 @import "../base/base.scss";
 
-.notification-type {
+.resource-type {
   &__container {
     width: 100%;
     max-width: $default-max-width;
@@ -15,7 +15,7 @@
 
   &__active-bg {
     display: block;
-    width: calc((100% - 3.2rem) / 3);
+    width: calc((100% - 2.4rem) / 2);
     background-color: $color-navTab-bg;
     align-self: center;
     padding: 0.4rem 0;
@@ -28,18 +28,13 @@
       left: 0.8rem;
     }
 
-    &--center {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
     &--right {
-      left: calc(66.66%);
+      left: 50%;
     }
   }
 
   &__element {
-    width: 33.33%;
+    width: 50%;
     display: flex;
     justify-content: center;
   }
@@ -59,29 +54,18 @@
     display: none;
     visibility: hidden;
 
-    &--general {
+    &--attachment {
     }
 
-    &--important {
-    }
-
-    &--critical {
+    &--link {
     }
   }
 
-  // &__radio:checked + &__radio-label {
-  //   color: red !important;
-  // }
-
-  &__radio--general:checked + &__radio-label {
-    color: $color-primary;
+  &__radio--attachment:checked + &__radio-label {
+    color: $color-blue;
   }
 
-  &__radio--important:checked + &__radio-label {
-    color: $color-important;
-  }
-
-  &__radio--critical:checked + &__radio-label {
-    color: $color-critical;
+  &__radio--link:checked + &__radio-label {
+    color: $color-blue;
   }
 }
