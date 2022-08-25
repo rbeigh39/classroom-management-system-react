@@ -34,8 +34,9 @@ const CreateResourceForm = (props) => {
         <label className={classes["resource-form__input-label"]}>
           Description
         </label>
-        <input
+        <textarea
           type="textarea"
+          rows="4"
           className={`${classes["resource-form__input"]} ${classes["resource-form__input--description"]}`}
           placeholder="Resource description"
         />

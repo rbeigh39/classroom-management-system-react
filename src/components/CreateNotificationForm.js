@@ -31,8 +31,9 @@ const CreateNotificationForm = (props) => {
         <label className={classes["notification-form__input-label"]}>
           Description
         </label>
-        <input
+        <textarea
           type="textarea"
+          rows="4"
           className={`${classes["notification-form__input"]} ${classes["notification-form__input--description"]}`}
           placeholder="Notification description"
         />
