@@ -1,0 +1,9 @@
+@import "../base/base.scss";
+
+.news-feed__page {
+  height: calc(100vh - 6rem);
+  background-color: $color-bg;
+
+  padding: 1.2rem;
+  overflow: scroll;
+}
