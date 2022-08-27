@@ -21,6 +21,7 @@ import Resources from "./pages/Resources";
 import CreateResources from "./pages/CreateResource";
 import Briefings from "./pages/Briefiings";
 import DiscussionForm from "./pages/DiscussionForum";
+import CommentsTab from "./pages/CommentsTab";
 
 function App() {
   return (
@@ -29,7 +30,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/tab-pages" element={<TabsContainer />}>
-          <Route path="home" element={<Feed />} />
+          <Route path="home" element={<Feed />}>
+            <Route path="comment-tab" element={<CommentsTab />} />
+          </Route>
           <Route path="notifications" element={<Notifications />} />
           <Route path="resources" element={<Resources />} />
           <Route path="briefings" element={<Briefings />} />

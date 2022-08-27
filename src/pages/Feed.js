@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import TabHeader from "../components/TabHeader";
 import FeedPost from "../components/FeedPost";
-import Comment from "../components/Comment";
 
 import classes from "../sass/pages/feed.module.scss";
 
 const Feed = () => {
-  const [commentBarOpenStatus, setCommentBarOpenStatus] = useState(false);
-
+  const navigate = useNavigate();
   const openCommentBar = () => {
-    setCommentBarOpenStatus(true);
+    navigate(`/tab-pages/home/comment-tab`);
   };
 
   return (
@@ -65,36 +64,7 @@ const Feed = () => {
         />
       </main>
 
-      {commentBarOpenStatus && (
-        <section className={classes["comments-tab__container"]}>
-          <div className={classes["comments-tab__close-btn-container"]}>
-            <button
-              className={classes["comments-tab__close-button"]}
-              onClick={() => setCommentBarOpenStatus(false)}
-            >
-              Close
-            </button>
-          </div>
-
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-          <Comment />
-
-          <div className={classes["comments-tab__input-container"]}>
-            <input
-              type="text"
-              className={classes["comments-tab__input"]}
-              placeholder="Write a comment..."
-            />
-          </div>
-        </section>
-      )}
+      <Outlet />
     </>
   );
 };
