@@ -5,5 +5,93 @@
   background-color: $color-bg;
 
   padding: 1.2rem;
+  padding-top: 1.6rem;
   overflow: scroll;
+}
+
+.comments-tab {
+  &__container {
+    background-color: #f8f8f8;
+    display: block;
+    position: fixed;
+    width: 100%;
+    bottom: -0%;
+    left: 0;
+    height: calc(100vh - 9rem);
+    z-index: 5000;
+    padding: 0 1rem 0.8rem 1rem;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    overflow: scroll;
+    animation: moveInBottom 0.2s ease-in-out;
+  }
+
+  &__close-btn-container {
+    width: 100%;
+    // background-color: #f8f8f8;
+    // position: absolute;
+    left: 0;
+    margin: 0;
+    padding: 0.2rem;
+  }
+
+  &__close-button {
+    background-color: #f8f8f8;
+    text-align: center;
+    outline: none;
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+    color: $color-close;
+    font-weight: 500;
+    border-bottom: 2px solid $color-close;
+    display: block;
+    margin: auto;
+    transition: all 0.2s;
+    backface-visibility: hidden;
+    cursor: pointer;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:active {
+      color: darken($color: $color-close, $amount: 10);
+      border-color: darken($color: $color-close, $amount: 10);
+      transform: translateX(-50%) scale(1.05);
+    }
+  }
+
+  &__input-container {
+    padding: 1rem;
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: $default-max-width;
+    animation: moveInBottom 0.2s ease-in-out;
+  }
+
+  &__input {
+    width: 100%;
+    max-width: $default-max-width;
+    font-size: 1.4rem;
+    padding: 0.8rem 1.2rem;
+    outline: none;
+    border: none;
+    border-radius: 10rem;
+    border: 1px solid $color-strokeLine;
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    bottom: -100%;
+    opacity: 0;
+  }
+
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
 }

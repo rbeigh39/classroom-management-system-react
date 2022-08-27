@@ -9,9 +9,10 @@
     border-radius: 0.8rem;
     border: 1px solid $color-strokeLine;
     overflow: hidden;
+    margin-bottom: 1.2rem;
 
     &:last-child {
-      margin-bottom: 10rem;
+      margin-bottom: 14rem;
     }
   }
 
@@ -38,7 +39,7 @@
   &__user-name {
     font-family: "Righteous", cursive;
     font-size: 1.6rem;
-    color: $color-grey-dark;
+    color: $color-grey-medium;
     font-weight: 500;
   }
 
@@ -50,10 +51,12 @@
 
   &__image-container {
     width: 100%;
+    backface-visibility: hidden;
   }
 
   &__image {
     width: 100%;
+    backface-visibility: hidden;
   }
 
   &__time-stamp {

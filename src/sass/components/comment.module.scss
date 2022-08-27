@@ -1,0 +1,44 @@
+@import "../base/base.scss";
+
+.comment {
+  &__container {
+    width: 100%;
+    max-width: $default-max-width;
+    display: flex;
+    margin: auto;
+    margin-top: 1.2rem;
+
+    &:first-of-type {
+      margin-top: 2.4rem;
+      background-color: orange;
+    }
+  }
+
+  &__user-photo {
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+  }
+
+  &__content-box {
+    background-color: $color-comment-container;
+    padding: 0.8rem;
+    border-radius: 0.8rem;
+  }
+
+  &__user-name {
+    font-family: "Righteous", cursive;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: $color-grey-medium;
+    margin-bottom: 0.8rem;
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-size: 1.3rem;
+    color: $color-comment-text;
+  }
+}

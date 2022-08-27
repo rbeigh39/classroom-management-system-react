@@ -3,36 +3,39 @@ import React from "react";
 import classes from "../sass/components/feedPost.module.scss";
 
 const FeedPost = (props) => {
+  let imageLink = null;
+  let postText = null;
+
+  if (props.imageLink) imageLink = props.imageLink;
+  if (props.postText) postText = props.postText;
+
   return (
     <div className={classes["post__container"]}>
       <div className={classes["post__header"]}>
         <img
-          src="/users/man.jpg"
+          src={props.userImage}
           alt="User"
           className={classes["post__user-img"]}
         />
-        <h4 className={classes["post__user-name"]}>Rayan Beigh</h4>
-        <p className={classes["post__text"]}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-          debitis eveniet modi nulla. Consequuntur odio.
-        </p>
+        <h4 className={classes["post__user-name"]}>{props.userName}</h4>
+
+        {postText && <p className={classes["post__text"]}>{props.postText}</p>}
       </div>
 
-      <div className={classes["post__image-container"]}>
-        <img
-          src="/users/meeting.jpg"
-          alt="Meeting"
-          className={classes["post__image"]}
-        />
-      </div>
+      {imageLink && (
+        <div className={classes["post__image-container"]}>
+          <img
+            src={props.imageLink}
+            alt="Post"
+            className={classes["post__image"]}
+          />
+        </div>
+      )}
 
-      <p className={classes["post__time-stamp"]}>Aug 23, 11:30pm</p>
+      <p className={classes["post__time-stamp"]}>{props.timeStamp}</p>
 
       <div className={classes["post__reaction-container"]}>
         <button className={classes["post__reaction-btn"]}>
-          {/* <svg className={classes["post__reaction-icon"]}>
-            <use xlinkHref="/assets/icon_like.svg"></use>
-          </svg> */}
           <img
             src="/assets/icon_like.svg"
             alt="Like"
@@ -41,7 +44,12 @@ const FeedPost = (props) => {
           Like
         </button>
 
-        <button className={classes["post__reaction-btn"]}>
+        <button
+          className={classes["post__reaction-btn"]}
+          onClick={() => {
+            props.onClick();
+          }}
+        >
           <img
             src="/assets/icon_comment.svg"
             alt="Comment"
