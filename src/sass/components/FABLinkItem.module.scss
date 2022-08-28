@@ -40,6 +40,11 @@
       hue-rotate(90deg) brightness(95%) contrast(84%);
   }
 
+  &__icon-post {
+    height: 100%;
+    width: 100%;
+  }
+
   &__container:active &__title {
     color: $color-primary;
   }

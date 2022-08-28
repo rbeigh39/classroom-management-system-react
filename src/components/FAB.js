@@ -28,6 +28,13 @@ const FAB = () => {
             icon="icon_notification.svg"
             title="Notification"
           />
+
+          <FABLinkItem
+            link="/create-post"
+            icon="icon_post--green.svg"
+            title="Post"
+            type="post"
+          />
         </li>
       </ul>
     </div>

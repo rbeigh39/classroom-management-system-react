@@ -1,0 +1,65 @@
+@import "../base/base.scss";
+
+.create-post-page {
+  padding: 1.6rem;
+}
+
+.create-post {
+  &__textarea {
+    width: 100%;
+    max-width: $default-max-width;
+    margin-top: 2.4rem;
+    padding: 0.8rem;
+    outline: none;
+    border: 1px solid $color-strokeLine;
+    border-radius: 1rem;
+    resize: none;
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+    color: $color-grey-medium;
+
+    &::placeholder {
+      color: $color-grey-light;
+    }
+
+    &:focus {
+      border: 1px solid $color-primary;
+    }
+  }
+
+  &__add-image-btn {
+    color: $color-primary;
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+
+    &::file-selector-button {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  &__add-image-label {
+    font-size: 1.6rem;
+    font-family: "Inter", sans-serif;
+    color: $color-grey-medium;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    background-color: $color-btn-add-post;
+    padding: 0.8rem 1.6rem;
+    margin-top: 1.6rem;
+    border: 1px solid $color-strokeLine;
+    border-radius: 0.8rem;
+    color: #161717;
+
+    &:active {
+      background-color: darken($color: $color-btn-add-post, $amount: 5%);
+    }
+  }
+
+  &__add-icon {
+    height: 1.8rem;
+    margin-right: 0.8rem;
+  }
+}
