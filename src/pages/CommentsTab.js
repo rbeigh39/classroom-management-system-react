@@ -36,6 +36,13 @@ const CommentsTab = (props) => {
           className={classes["comments-tab__input"]}
           placeholder="Write a comment..."
         />
+        <button className={classes["comments-tab__send-button"]}>
+          <img
+            src="/assets/icon_send.svg"
+            alt="send icon"
+            className={classes["comments-tab__send-icon"]}
+          />
+        </button>
       </div>
     </section>
   );

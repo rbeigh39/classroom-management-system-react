@@ -24,6 +24,7 @@
     z-index: 1500;
     box-shadow: 0 0.8rem 1.6rem rgba($color-grey-dark, 0.1);
     border: 1px solid $color-strokeLine;
+    cursor: pointer;
   }
 
   &__icon {

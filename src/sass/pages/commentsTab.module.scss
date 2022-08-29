@@ -74,6 +74,27 @@
     border: none;
     border-radius: 10rem;
     border: 1px solid $color-strokeLine;
+    padding-right: 3.8rem;
+
+    &:focus {
+      border: 1px solid $color-primary;
+    }
+  }
+
+  &__send-button {
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 1.6rem;
+    top: 1.9rem;
+    background-color: transparent;
+  }
+
+  &__send-icon {
+    height: 1.8rem;
   }
 }
 
@@ -81,6 +102,10 @@
   0% {
     bottom: -100%;
     opacity: 0;
+  }
+
+  1% {
+    opacity: 1;
   }
 
   100% {

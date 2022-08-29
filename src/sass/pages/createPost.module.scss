@@ -5,6 +5,12 @@
 }
 
 .create-post {
+  &__form {
+    width: 100%;
+    max-width: $default-max-width;
+    margin: auto;
+  }
+
   &__textarea {
     width: 100%;
     max-width: $default-max-width;

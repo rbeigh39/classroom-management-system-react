@@ -9,7 +9,7 @@ const CreatePost = (props) => {
     <div className={classes["create-post-page"]}>
       <CreateHeader backLink="/tab-pages/home" />
 
-      <form>
+      <form className={classes["create-post__form"]}>
         <textarea
           rows="20"
           className={classes["create-post__textarea"]}
