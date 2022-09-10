@@ -6,7 +6,14 @@ const FeedPost = (props) => {
   let imageLink = null;
   let postText = null;
 
-  if (props.imageLink) imageLink = props.imageLink;
+  if (props.imageLink && props.imageLink !== "") {
+    imageLink = props.imageLink;
+  }
+
+  if (props.imageLink === "") {
+    imageLink = undefined;
+  }
+
   if (props.postText) postText = props.postText;
 
   return (
