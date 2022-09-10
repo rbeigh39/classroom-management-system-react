@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
+import dateFormater from "../utilities/dateFormater";
 
 import TabHeader from "../components/TabHeader";
 import FeedPost from "../components/FeedPost";
@@ -12,8 +13,6 @@ const Feed = () => {
 
   const [posts, setPosts] = useState([]);
   const [curPage, setCurPage] = useState(1);
-
-  console.log("there are the posts: ", posts);
 
   useEffect(() => {
     axios({
@@ -51,6 +50,10 @@ const Feed = () => {
           const image = cur.image;
           let imgLink = null;
 
+          // dateFormater(cur.createdAt);
+
+          // console.log("the timestamp is: ", dateFormater(cur.createdAt));
+
           if (image) {
             imgLink = `${process.env.REACT_APP_BACKEND_URL}/img/posts/${image}`;
           } else {
@@ -65,7 +68,7 @@ const Feed = () => {
               onClick={openCommentBar}
               imageLink={imgLink}
               postText={cur.message}
-              timeStamp="Aug 23, 11:30pm"
+              timeStamp={dateFormater(cur.createdAt)}
             />
           );
         })}
