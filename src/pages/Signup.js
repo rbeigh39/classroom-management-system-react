@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
@@ -6,12 +6,15 @@ import SignupInput from "../components/SignupInput";
 
 import "../sass/styles";
 import classes from "../sass/pages/signup.module.scss";
+import AuthContext from "../store/authContext";
 
 const isValidEmail = (email) => {
   return /\S+@\S+\.\S+/.test(email);
 };
 
 const Signup = () => {
+  const ctx = useContext(AuthContext);
+
   const [isValid, setIsValid] = useState(false);
 
   const [firstName, setFirstName] = useState("");
@@ -60,6 +63,14 @@ const Signup = () => {
     };
   }, [firstName, lastName, password, passwordConfirm, email]);
 
+  const signupSubmitHandler = (e) => {
+    e.preventDefault();
+
+    const fullName = `${firstName} ${lastName}`;
+    ctx.signupHandler(fullName, email, password, passwordConfirm);
+    console.log("signing up the user!");
+  };
+
   return (
     <main className={classes["signup-page"]}>
       <div className={classes["signup__header"]}>
@@ -80,7 +91,10 @@ const Signup = () => {
       <div className={classes["signup__body"]}>
         <h1 className={classes["signup__heading"]}>Signup for an account</h1>
 
-        <div className={classes["signup__form-container"]}>
+        <form
+          className={classes["signup__form-container"]}
+          onSubmit={signupSubmitHandler}
+        >
           <SignupInput
             title="First name"
             type="text"
@@ -122,7 +136,7 @@ const Signup = () => {
           />
 
           <Button isValid={isValid}>Create Account</Button>
-        </div>
+        </form>
       </div>
     </main>
   );

@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
 
 import classes from "../sass/pages/login.module.scss";
+import AuthContext from "../store/authContext";
 
 const isValidEmail = (email) => {
   return /\S+@\S+\.\S+/.test(email);
 };
 
 const Login = () => {
+  const ctx = useContext(AuthContext);
+
   const [isValid, setIsValid] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +35,12 @@ const Login = () => {
     };
   }, [email, password]);
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    ctx.loginHandler(email, password);
+  };
+
   return (
     <main className={classes["login-page"]}>
       <div className={classes["signup-link__container"]}>
@@ -53,7 +62,10 @@ const Login = () => {
         </div>
 
         <div className={classes["login-form__container"]}>
-          <form className={classes["login-form__form"]}>
+          <form
+            className={classes["login-form__form"]}
+            onSubmit={submitHandler}
+          >
             <label
               htmlFor="email"
               className={classes["login-form__input-label"]}

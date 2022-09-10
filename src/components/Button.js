@@ -7,7 +7,7 @@ const Button = (props) => {
 
   return (
     <button
-      disabled={props.isValid}
+      disabled={!props.isValid}
       className={`u-margin-top-medium  ${classes["btn-primary"]}  ${
         props.isValid ? "" : classes["inactive"]
       }`}

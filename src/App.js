@@ -2,7 +2,7 @@ import React from "react";
 import "./sass/styles";
 
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Routes,
   Route,
   // Outlet,
@@ -26,25 +26,25 @@ import CreatePost from "./pages/CreatePost";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/tab-pages" element={<TabsContainer />}>
-          <Route path="home" element={<Feed />}>
-            <Route path="comment-tab" element={<CommentsTab />} />
-          </Route>
-          <Route path="notifications" element={<Notifications />} />
-          <Route path="resources" element={<Resources />} />
-          <Route path="briefings" element={<Briefings />} />
-          <Route path="forum" element={<DiscussionForm />} />
+    // <Router>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/tab-pages" element={<TabsContainer />}>
+        <Route path="home" element={<Feed />}>
+          <Route path="comment-tab" element={<CommentsTab />} />
         </Route>
+        <Route path="notifications" element={<Notifications />} />
+        <Route path="resources" element={<Resources />} />
+        <Route path="briefings" element={<Briefings />} />
+        <Route path="forum" element={<DiscussionForm />} />
+      </Route>
 
-        <Route path="/create-notification" element={<CreateNotifications />} />
-        <Route path="/create-resources" element={<CreateResources />} />
-        <Route path="/create-post" element={<CreatePost />} />
-      </Routes>
-    </Router>
+      <Route path="/create-notification" element={<CreateNotifications />} />
+      <Route path="/create-resources" element={<CreateResources />} />
+      <Route path="/create-post" element={<CreatePost />} />
+    </Routes>
+    // </Router>
   );
 }
 
