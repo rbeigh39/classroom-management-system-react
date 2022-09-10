@@ -40,11 +40,9 @@ const NotificationCard = (props) => {
   return (
     <div className={classes["notification-card__container"]}>
       {indicator}
-      <h2 className={classes["notification-card__title"]}>Revised Timetable</h2>
-      <p className={classes["notification-card__date"]}>22-12-2022</p>
-      <p className={classes["notification-card__message"]}>
-        The time table was updated recently. Download the revised tametable.
-      </p>
+      <h2 className={classes["notification-card__title"]}>{props.title}</h2>
+      <p className={classes["notification-card__date"]}>{props.date}</p>
+      <p className={classes["notification-card__message"]}>{props.message}</p>
       {link}
     </div>
   );
