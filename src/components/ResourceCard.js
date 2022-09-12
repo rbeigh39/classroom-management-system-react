@@ -1,4 +1,5 @@
 import React from "react";
+import dateFormater from "../utilities/dateFormater";
 
 import classes from "../sass/components/resourceCard.module.scss";
 
@@ -6,7 +7,7 @@ const ResoureCard = (props) => {
   let downloadLink = null;
   let link = null;
 
-  if (props.type === "media") {
+  if (props.resource.fileName) {
     downloadLink = (
       <div className={classes["resource-card__download-container"]}>
         <img
@@ -14,7 +15,11 @@ const ResoureCard = (props) => {
           alt="Download Icon"
           className={classes["resource-card__download-icon"]}
         />
-        <a href="/#" className={classes["resource-card__download-link"]}>
+        <a
+          href={`${process.env.REACT_APP_BACKEND_URL}/api/v1/resources/download/${props.resource.fileName}`}
+          download={`Document`}
+          className={classes["resource-card__download-link"]}
+        >
           Download
         </a>
       </div>
@@ -36,11 +41,14 @@ const ResoureCard = (props) => {
 
   return (
     <div className={classes["resource-card__container"]}>
-      <h2 className={classes["resource-card__title"]}>Assignment Guidelines</h2>
-      <p className={classes["resource-card__date"]}>22-12-2022</p>
+      <h2 className={classes["resource-card__title"]}>
+        {props.resource.title}
+      </h2>
+      <p className={classes["resource-card__date"]}>
+        {dateFormater(props.resource.createdAt)}
+      </p>
       <p className={classes["resource-card__message"]}>
-        The assignment guidelines are attached to this card. Please download it
-        and follow it.
+        {props.resource.description}
       </p>
 
       {downloadLink && downloadLink}
