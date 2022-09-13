@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import classes from "../sass/components/createNotificationType.module.scss";
 
 const CreateNotificationType = (props) => {
-  const [notificationType, setNotificationType] = useState("NT-general");
+  // const [notificationType, setNotificationType] = useState("NT-general");
 
   let backgroundActiveClass = null;
 
-  if (notificationType === "NT-general") {
+  if (props.notificationType === "NT-general") {
     backgroundActiveClass = `${classes["notification-type__active-bg--left"]}`;
-  } else if (notificationType === "NT-important") {
+  } else if (props.notificationType === "NT-important") {
     backgroundActiveClass = `${classes["notification-type__active-bg--center"]}`;
-  } else if (notificationType === "NT-critical") {
+  } else if (props.notificationType === "NT-critical") {
     backgroundActiveClass = `${classes["notification-type__active-bg--right"]}`;
   }
 
@@ -26,10 +26,10 @@ const CreateNotificationType = (props) => {
         <input
           type="radio"
           name="notification-type"
-          value={notificationType}
+          value={props.notificationType}
           defaultChecked="checked"
           onChange={() => {
-            setNotificationType("NT-general");
+            props.setNotificationType("NT-general");
           }}
           className={`${classes["notification-type__radio"]} ${classes["notification-type__radio--general"]}`}
           id="NT-general"
@@ -46,10 +46,10 @@ const CreateNotificationType = (props) => {
         <input
           type="radio"
           name="notification-type"
-          value={notificationType}
+          value={props.notificationType}
           className={`${classes["notification-type__radio"]} ${classes["notification-type__radio--important"]}`}
           onChange={() => {
-            setNotificationType("NT-important");
+            props.setNotificationType("NT-important");
           }}
           id="NT-important"
         />
@@ -65,10 +65,10 @@ const CreateNotificationType = (props) => {
         <input
           type="radio"
           name="notification-type"
-          value={notificationType}
+          value={props.notificationType}
           className={`${classes["notification-type__radio"]} ${classes["notification-type__radio--critical"]}`}
           onChange={() => {
-            setNotificationType("NT-critical");
+            props.setNotificationType("NT-critical");
           }}
           id="NT-critical"
         />

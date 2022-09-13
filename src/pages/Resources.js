@@ -25,7 +25,7 @@ const Resources = () => {
       })
       .catch((err) => {
         console.log("error fetching resources!", err);
-        window.alert("Error fetching resources");
+        window.alert("Error fetching resources!");
       });
 
     return () => {

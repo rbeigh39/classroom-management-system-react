@@ -27,7 +27,13 @@ const CreateHeader = (props) => {
       </figure>
 
       <div className={classes["create-header__button-container"]}>
-        <ButtonPost isValid={false}>Post</ButtonPost>
+        <ButtonPost
+          btnIsActive={props.btnIsActive}
+          isValid={props.btnIsActive}
+          onClickHandler={props.btnOnLickHandlerFn}
+        >
+          Post
+        </ButtonPost>
       </div>
     </div>
   );

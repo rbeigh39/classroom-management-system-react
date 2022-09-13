@@ -5,10 +5,11 @@ import classes from "../sass/components/buttonPost.module.scss";
 const ButtonPost = (props) => {
   return (
     <button
-      disabled={props.isValid}
+      disabled={!props.isValid}
       className={`${classes["btn-post"]}  ${
         props.isValid ? "" : classes["inactive"]
       }`}
+      onClick={props.onClickHandler}
     >
       {props.children}
     </button>
