@@ -56,7 +56,7 @@ const CreateNotification = () => {
       notification_link = notificationLink;
     }
 
-    const response = await postNotification(
+    await postNotification(
       notification_type,
       notificationTitle,
       notificationDescription,
