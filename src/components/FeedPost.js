@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
 
 import AuthContext from "../store/authContext";
 
@@ -15,7 +16,33 @@ const FeedPost = (props) => {
     });
   }, []);
 
-  console.log("these are the likes from post component", props.likes);
+  const likeBtnHandler = async () => {
+    let method = "";
+
+    if (hasLiked) {
+      method = "DELETE";
+    } else {
+      method = "POST";
+    }
+
+    try {
+      await axios({
+        method,
+        url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/likes/`,
+        withCredentials: true,
+        data: {
+          post: props.postId,
+        },
+      });
+
+      if (method === "POST") setHasLiked(true);
+      if (method === "DELETE") setHasLiked(false);
+    } catch (err) {
+      console.log("something went wrong!", err);
+      window.alert("Soemthing went wrong!");
+    }
+  };
+
   let imageLink = null;
   let postText = null;
 
@@ -55,7 +82,10 @@ const FeedPost = (props) => {
       <p className={classes["post__time-stamp"]}>{props.timeStamp}</p>
 
       <div className={classes["post__reaction-container"]}>
-        <button className={classes["post__reaction-btn"]}>
+        <button
+          className={classes["post__reaction-btn"]}
+          onClick={likeBtnHandler}
+        >
           <img
             src="/assets/icon_like.svg"
             alt="Like"
@@ -63,7 +93,7 @@ const FeedPost = (props) => {
               hasLiked ? classes["post__liked"] : ""
             }`}
           />
-          Like
+          <span className={hasLiked ? classes["post__liked"] : ""}>Like</span>
         </button>
 
         <button

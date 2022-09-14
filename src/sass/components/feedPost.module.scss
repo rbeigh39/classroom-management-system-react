@@ -98,6 +98,11 @@
     }
   }
 
+  &__liked {
+    filter: brightness(0) saturate(100%) invert(53%) sepia(72%) saturate(1814%)
+      hue-rotate(176deg) brightness(94%) contrast(98%);
+  }
+
   &__reaction-icon {
     height: 1.5rem;
     margin-right: 0.8rem;

@@ -62,7 +62,8 @@ const Feed = () => {
 
           return (
             <FeedPost
-              key={cur.id}
+              key={cur._id}
+              postId={cur._id}
               userName={cur.author.name}
               userImage={`${process.env.REACT_APP_BACKEND_URL}/img/users/${cur.author.photo}`}
               onClick={openCommentBar}
