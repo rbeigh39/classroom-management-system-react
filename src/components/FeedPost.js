@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+
+import AuthContext from "../store/authContext";
 
 import classes from "../sass/components/feedPost.module.scss";
 
 const FeedPost = (props) => {
+  const authCtx = useContext(AuthContext);
+
+  const [hasLiked, setHasLiked] = useState(false);
+
+  useEffect(() => {
+    props.likes.forEach((cur) => {
+      if (cur.user === authCtx.user._id) setHasLiked(true);
+    });
+  }, []);
+
+  console.log("these are the likes from post component", props.likes);
   let imageLink = null;
   let postText = null;
 
@@ -46,7 +59,9 @@ const FeedPost = (props) => {
           <img
             src="/assets/icon_like.svg"
             alt="Like"
-            className={classes["post__reaction-icon"]}
+            className={`${classes["post__reaction-icon"]} ${
+              hasLiked ? classes["post__liked"] : ""
+            }`}
           />
           Like
         </button>

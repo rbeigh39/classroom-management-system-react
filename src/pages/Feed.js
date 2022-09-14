@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
 import dateFormater from "../utilities/dateFormater";
@@ -69,6 +69,7 @@ const Feed = () => {
               imageLink={imgLink}
               postText={cur.message}
               timeStamp={dateFormater(cur.createdAt)}
+              likes={cur.likes}
             />
           );
         })}
