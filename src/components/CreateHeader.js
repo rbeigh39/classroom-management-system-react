@@ -30,7 +30,7 @@ const CreateHeader = (props) => {
         <ButtonPost
           btnIsActive={props.btnIsActive}
           isValid={props.btnIsActive}
-          onClickHandler={props.btnOnLickHandlerFn}
+          onClickHandler={props.btnOnClickHandlerFn}
         >
           Post
         </ButtonPost>

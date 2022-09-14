@@ -9,7 +9,10 @@ const ButtonPost = (props) => {
       className={`${classes["btn-post"]}  ${
         props.isValid ? "" : classes["inactive"]
       }`}
-      onClick={props.onClickHandler}
+      onClick={(e) => {
+        e.preventDefault();
+        props.onClickHandler();
+      }}
     >
       {props.children}
     </button>

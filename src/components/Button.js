@@ -3,8 +3,6 @@ import React from "react";
 import classes from "../sass/components/button.module.scss";
 
 const Button = (props) => {
-  console.log("props.isvalid:", props.isValid);
-
   return (
     <button
       disabled={!props.isValid}

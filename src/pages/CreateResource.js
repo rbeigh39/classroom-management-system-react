@@ -97,7 +97,7 @@ const CreateResource = () => {
       <CreateHeader
         backLink="/tab-pages/resources"
         btnIsActive={btnIsActive}
-        btnOnLickHandlerFn={createResourceHander}
+        btnOnClickHandlerFn={createResourceHander}
       />
 
       <h1 className={classes["create-resource__heading"]}>Create Resource</h1>

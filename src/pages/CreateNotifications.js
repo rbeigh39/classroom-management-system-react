@@ -89,7 +89,7 @@ const CreateNotification = () => {
       <CreateHeader
         backLink="/tab-pages/notifications"
         btnIsActive={btnIsActive}
-        btnOnLickHandlerFn={postNotificationHandler}
+        btnOnClickHandlerFn={postNotificationHandler}
       />
 
       <h1 className={classes["create-notification__heading"]}>
