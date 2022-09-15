@@ -1,0 +1,26 @@
+@import "../base/base.scss";
+
+.time-table {
+  &__container {
+    width: 100%;
+    max-width: $default-max-width;
+    background-color: #fff;
+    margin: 1.6rem auto;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid $color-strokeLine;
+  }
+
+  &__subject {
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+    color: $color-grey-light;
+    margin-bottom: 0.8rem;
+  }
+
+  &__time {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    color: $color-grey-light;
+  }
+}
