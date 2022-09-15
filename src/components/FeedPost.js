@@ -99,7 +99,7 @@ const FeedPost = (props) => {
         <button
           className={classes["post__reaction-btn"]}
           onClick={() => {
-            props.onClick();
+            props.onClick(props.postId);
           }}
         >
           <img

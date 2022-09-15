@@ -32,7 +32,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/tab-pages" element={<TabsContainer />}>
         <Route path="home" element={<Feed />}>
-          <Route path="comment-tab" element={<CommentsTab />} />
+          <Route path="comment-tab/:postId" element={<CommentsTab />} />
         </Route>
         <Route path="notifications" element={<Notifications />} />
         <Route path="resources" element={<Resources />} />

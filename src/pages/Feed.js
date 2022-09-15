@@ -38,8 +38,9 @@ const Feed = () => {
       });
   }, []);
 
-  const openCommentBar = () => {
-    navigate(`/tab-pages/home/comment-tab`);
+  const openCommentBar = (postId) => {
+    console.log("from function to open comment tab: ", postId);
+    navigate(`/tab-pages/home/comment-tab/${postId}`);
   };
 
   return (

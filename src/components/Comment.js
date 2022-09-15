@@ -11,11 +11,8 @@ const Comment = (props) => {
         alt="user"
       />
       <div className={classes["comment__content-box"]}>
-        <h4 className={classes["comment__user-name"]}>Rayan Beigh</h4>
-        <p className={classes["comment__text"]}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-          debitis eveniet modi nulla. Consequuntur odio.
-        </p>
+        <h4 className={classes["comment__user-name"]}>{props.name}</h4>
+        <p className={classes["comment__text"]}>{props.comment}</p>
       </div>
     </div>
   );
