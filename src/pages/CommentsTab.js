@@ -7,12 +7,40 @@ import Comment from "../components/Comment";
 
 import classes from "../sass/pages/commentsTab.module.scss";
 
+const postComment = async (postId, comment) => {
+  const res = await axios({
+    method: "POST",
+    url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/comments/${postId}`,
+    withCredentials: true,
+    data: {
+      comment,
+    },
+  });
+
+  return res;
+};
+
 const CommentsTab = (props) => {
   const navigate = useNavigate();
   const latestCommentRef = useRef(null);
+  const { postId } = useParams();
 
   const [comments, setComments] = useState([]);
-  const { postId } = useParams();
+  const [newComment, setNewComment] = useState("");
+  const [newPostedComment, setNewPostedComment] = useState("");
+
+  const postCommentHandler = async () => {
+    if (newComment.replace(/\s+/g, "") === "") return;
+
+    try {
+      const res = await postComment(postId, newComment);
+      setNewPostedComment((prevState) => res.data.data.newComment);
+      setNewComment(() => "");
+    } catch (err) {
+      console.log("Error posting comment!");
+      window.alert("Error posting comment!");
+    }
+  };
 
   useEffect(() => {
     axios({
@@ -27,7 +55,7 @@ const CommentsTab = (props) => {
         console.log("error fetching comments: ", err);
         window.alert("Error fetching comments!");
       });
-  }, []);
+  }, [newPostedComment]);
 
   useEffect(() => {
     latestCommentRef.current?.scrollIntoView();
@@ -68,8 +96,20 @@ const CommentsTab = (props) => {
           type="text"
           className={classes["comments-tab__input"]}
           placeholder="Write a comment..."
+          onKeyDown={(e) => {
+            if (e.keyCode === 13 || e.which === 13) {
+              postCommentHandler();
+            }
+          }}
+          value={newComment}
+          onChange={(e) => {
+            setNewComment(() => e.target.value);
+          }}
         />
-        <button className={classes["comments-tab__send-button"]}>
+        <button
+          className={classes["comments-tab__send-button"]}
+          onClick={postCommentHandler}
+        >
           <img
             src="/assets/icon_send.svg"
             alt="send icon"

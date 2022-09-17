@@ -15,8 +15,9 @@ const Briefings = () => {
       withCredentials: true,
     })
       .then((res) => {
-        setTimeTable(() => [...res.data.data.timeTable[0].classes]);
-        // console.log(res.data.data.timeTable[0].classes);
+        if (res.data.data.timeTable[0].classes) {
+          setTimeTable(() => [...res.data.data.timeTable[0].classes]);
+        }
       })
       .catch((err) => {
         window.alert("something went wrong fetching time-table!");
