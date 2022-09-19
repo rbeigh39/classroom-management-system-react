@@ -1,0 +1,111 @@
+@import "../base/base.scss";
+
+.chat-header {
+  &__container {
+    //  background-color: orange;
+    display: flex;
+    align-items: center;
+  }
+
+  &__image-container {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 10rem;
+    overflow: hidden;
+    margin-right: 0.8rem;
+    //  border: 1px solid $color-strokeLine;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__name {
+    font-family: "Righteous", cursive;
+    font-size: 1.4rem;
+    letter-spacing: 0.2px;
+    background-image: linear-gradient(to bottom right, #7ecc7d, #45b489);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.chat {
+  &__container {
+    background-color: #f5f5f5;
+    width: max-content;
+    max-width: 83%;
+    border-radius: 2rem;
+    border-top-left-radius: 0;
+    padding: 0.8rem;
+    border: 1px solid $color-strokeLine;
+
+    &:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
+
+    &--local {
+      border-radius: 2rem;
+      border-top-right-radius: 0;
+      background-image: linear-gradient(to bottom right, #6dc581, #4bb7);
+      margin-left: auto;
+    }
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-size: 1.3rem;
+    color: #504d4d;
+
+    &:not(:first-child) {
+      margin-top: 0.8rem;
+    }
+
+    &--local {
+      color: $color-white;
+    }
+  }
+
+  &__image-container {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-top: 0.8rem;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  &__download-container {
+    margin-top: 0.8rem;
+  }
+
+  &__download-link {
+    display: flex;
+    align-items: center;
+    color: #5bbe85;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.4rem;
+    text-decoration: none;
+
+    &--local {
+      color: #fff;
+    }
+
+    span {
+      margin-left: 0.8rem;
+    }
+  }
+
+  &__download-icon {
+    height: 3rem;
+    width: 3rem;
+
+    &--local {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+        saturate(7500%) hue-rotate(337deg) brightness(105%) contrast(101%);
+    }
+  }
+}

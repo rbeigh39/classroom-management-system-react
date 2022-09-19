@@ -1,0 +1,63 @@
+@import "../base/base.scss";
+
+.form {
+  &__container {
+    display: flex;
+  }
+
+  &__add-container {
+    height: 3.6rem;
+    width: 3.6rem;
+    border-radius: 10rem;
+    border: 1px solid #4aba8e;
+    background-color: #f2f5f4;
+    position: relative;
+    margin-right: 0.8rem;
+  }
+
+  &__add-label {
+    //  position: relative;
+    display: block;
+  }
+
+  &__add-icon {
+    height: 1.4rem;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__add-input {
+    display: none;
+    visibility: hidden;
+  }
+
+  &__text-input {
+    margin-right: 0.8rem;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    padding: 0 0.8rem;
+    transition: all 0.2s;
+    border: 1px solid $color-strokeLine;
+    font-size: 1.4rem;
+
+    &:focus {
+      border: 1px solid #4aba8e;
+    }
+  }
+
+  &__submit-btn {
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  &__submit-icon {
+  }
+}

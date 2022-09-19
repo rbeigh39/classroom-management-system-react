@@ -39,35 +39,35 @@ const BottomTabBar = () => {
           iconAltName="Home"
           isActive={isActiveHome}
           setTarget={setActiveTarget}
-          target="home"
+          target="/tab-pages/home"
         />
         <IconTabBar
           icon="icon_notification.svg"
           iconAltName="Home"
           isActive={isActiveNotification}
           setTarget={setActiveTarget}
-          target="notifications"
+          target="/tab-pages/notifications"
         />
         <IconTabBar
           icon="icon_resources_2.svg"
           iconAltName="Home"
           isActive={isActiveResources}
           setTarget={setActiveTarget}
-          target="resources"
+          target="/tab-pages/resources"
         />
         <IconTabBar
           icon="icon_briefings.svg"
           iconAltName="Home"
           isActive={isActiveBriefings}
           setTarget={setActiveTarget}
-          target="briefings"
+          target="/tab-pages/briefings"
         />
         <IconTabBar
           icon="icon_discussionForum.svg"
           iconAltName="Home"
           isActive={isActiveForum}
           setTarget={setActiveTarget}
-          target="forum"
+          target="/forum"
         />
       </nav>
     </div>
