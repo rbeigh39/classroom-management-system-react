@@ -3,10 +3,6 @@ import React from "react";
 import classes from "../sass/components/chatItem.module.scss";
 
 const ChatItem = (props) => {
-  console.log(props.type);
-  const klass = props.type === "local" ? classes["chat-container--local"] : "";
-  console.log(klass);
-
   return (
     <div
       className={`${classes["chat__container"]} ${
