@@ -23,6 +23,7 @@
   &__name {
     font-family: "Righteous", cursive;
     font-size: 1.4rem;
+    letter-spacing: 0.2px;
     background-image: linear-gradient(to bottom right, #7ecc7d, #45b489);
     background-clip: text;
     color: transparent;
@@ -34,16 +35,17 @@
     background-color: #f5f5f5;
     width: max-content;
     max-width: 83%;
-    border-radius: 1rem;
+    border-radius: 2rem;
     border-top-left-radius: 0;
     padding: 0.8rem;
+    border: 1px solid $color-strokeLine;
 
     &:not(:last-child) {
       margin-bottom: 0.8rem;
     }
 
     &--local {
-      border-radius: 1rem;
+      border-radius: 2rem;
       border-top-right-radius: 0;
       background-image: linear-gradient(to bottom right, #6dc581, #4bb7);
       margin-left: auto;

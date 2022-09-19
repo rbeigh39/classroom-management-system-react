@@ -18,7 +18,7 @@ const ChatItem = (props) => {
           <div className={classes["chat-header__image-container"]}>
             <img
               className={classes["chat-header__image"]}
-              src={`http://127.0.0.1:8000/img/users/user-631b08adaad9bb4688170a14-1662827282073.jpeg`}
+              src={`${process.env.REACT_APP_BACKEND_URL}/img/users/user-631b08adaad9bb4688170a14-1662827282073.jpeg`}
               alt="user"
             />
           </div>
