@@ -1,0 +1,39 @@
+@import "../base/base.scss";
+
+.discussion-forum__page {
+  //   background-image: url("http://127.0.0.1:3000/assets/chat-background.jpg");
+  //   background-image: url("/assets/chat-background.jpg");
+  height: calc(100vh - 6rem);
+  overflow: scroll;
+}
+
+.discussion-forum {
+  &__background-img {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    object-fit: cover;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
+
+  &__chat-container {
+    //  background-color: rgb(171, 216, 177);
+    width: 100%;
+    max-width: $default-max-width;
+    margin: auto;
+    padding: 1.6rem 1rem 6.1rem 1rem;
+  }
+
+  &__form-container {
+    background-color: #ede5da;
+    padding: 0.8rem;
+    position: fixed;
+    left: 50%;
+    bottom: 0rem;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: $default-max-width;
+  }
+}
