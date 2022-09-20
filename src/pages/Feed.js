@@ -72,6 +72,8 @@ const Feed = () => {
               postText={cur.message}
               timeStamp={dateFormater(cur.createdAt)}
               likes={cur.likes}
+              likesCount={cur.noOfLikes}
+              commentsCount={cur.noOfComments}
             />
           );
         })}

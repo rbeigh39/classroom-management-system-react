@@ -65,6 +65,12 @@
     border-bottom: 1px solid $color-strokeLine;
     padding-bottom: 0.8rem;
     color: $color-grey-light;
+
+    span {
+      margin-right: 0;
+      display: block;
+      float: right;
+    }
   }
 
   &__reaction-container {

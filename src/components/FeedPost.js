@@ -79,7 +79,12 @@ const FeedPost = (props) => {
         </div>
       )}
 
-      <p className={classes["post__time-stamp"]}>{props.timeStamp}</p>
+      <p className={classes["post__time-stamp"]}>
+        {props.timeStamp}{" "}
+        <span>
+          Likes ({props.likesCount}) | Comments ({props.commentsCount})
+        </span>
+      </p>
 
       <div className={classes["post__reaction-container"]}>
         <button
