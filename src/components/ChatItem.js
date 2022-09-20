@@ -3,6 +3,13 @@ import React from "react";
 import classes from "../sass/components/chatItem.module.scss";
 
 const ChatItem = (props) => {
+  // message
+  // image
+  // foreign/local
+  // fileDownload
+  // userImage
+  // name
+
   return (
     <div
       className={`${classes["chat__container"]} ${
@@ -14,7 +21,7 @@ const ChatItem = (props) => {
           <div className={classes["chat-header__image-container"]}>
             <img
               className={classes["chat-header__image"]}
-              src={`${process.env.REACT_APP_BACKEND_URL}/img/users/user-631b08adaad9bb4688170a14-1662827282073.jpeg`}
+              src={`${process.env.REACT_APP_BACKEND_URL}/img/users/${props.userImage}`}
               alt="user"
             />
           </div>
@@ -27,37 +34,42 @@ const ChatItem = (props) => {
           props.type === "local" ? classes["chat__text--local"] : ""
         }`}
       >
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam debitis
-        eveniet modi nulla. Consequuntur odio.
+        {props.message}
       </p>
 
-      <div className={classes["chat__image-container"]}>
-        <img
-          className={classes["chat__image"]}
-          src={`${process.env.REACT_APP_BACKEND_URL}/img/posts/user-631b0773aad9bb4688170a0c-1662805198894.jpeg`}
-          alt="chat"
-        />
-      </div>
-
-      <div className={classes["chat__download-container"]}>
-        <a
-          className={`${classes["chat__download-link"]} ${
-            props.type === "local" ? classes["chat__download-link--local"] : ""
-          }`}
-          href="gmail.com"
-        >
+      {props.image && (
+        <div className={classes["chat__image-container"]}>
           <img
-            className={`${classes["chat__download-icon"]} ${
+            className={classes["chat__image"]}
+            src={`${process.env.REACT_APP_BACKEND_URL}/img/messages/${props.image}`}
+            alt="chat"
+          />
+        </div>
+      )}
+
+      {props.fileDownload && (
+        <div className={classes["chat__download-container"]}>
+          <a
+            className={`${classes["chat__download-link"]} ${
               props.type === "local"
-                ? classes["chat__download-icon--local"]
+                ? classes["chat__download-link--local"]
                 : ""
             }`}
-            src="/assets/icon_chat-download.svg"
-            alt="downlaod icon"
-          />
-          <span>Download</span>
-        </a>
-      </div>
+            href={props.fileDownload}
+          >
+            <img
+              className={`${classes["chat__download-icon"]} ${
+                props.type === "local"
+                  ? classes["chat__download-icon--local"]
+                  : ""
+              }`}
+              src="/assets/icon_chat-download.svg"
+              alt="downlaod icon"
+            />
+            <span>Download</span>
+          </a>
+        </div>
+      )}
     </div>
   );
 };

@@ -11,6 +11,14 @@ const BottomTabBar = () => {
   const [isActiveBriefings, setIsActiveBriefings] = useState(false);
   const [isActiveForum, setIsActiveForum] = useState(false);
 
+  console.log("these are the flags: ", {
+    isActiveHome,
+    isActiveNotification,
+    isActiveResources,
+    isActiveBriefings,
+    isActiveForum,
+  });
+
   const setActiveTarget = (target) => {
     setIsActiveHome(false);
     setIsActiveNotification(false);

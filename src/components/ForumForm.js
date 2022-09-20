@@ -7,7 +7,7 @@ const forumForm = (props) => {
 
   return (
     <form className={classes["form__container"]}>
-      <div className={classes["form__add-container"]}>
+      {/* <div className={classes["form__add-container"]}>
         <label htmlFor="add-file" className={classes["form__add-label"]}>
           <img
             className={classes["form__add-icon"]}
@@ -20,7 +20,7 @@ const forumForm = (props) => {
           id="add-file"
           className={classes["form__add-input"]}
         />
-      </div>
+      </div> */}
       <div className={classes["form__add-container"]}>
         <label htmlFor="add-image" className={classes["form__add-label"]}>
           <img
@@ -34,14 +34,28 @@ const forumForm = (props) => {
           accept="image/*"
           id="add-image"
           className={classes["form__add-input"]}
+          onChange={(e) => {
+            props.setMessageImage(e.target.files[0]);
+          }}
         />
       </div>
       <input
         type="text"
         className={classes["form__text-input"]}
         placeholder="Type something..."
+        value={props.newMessage}
+        onChange={(e) => {
+          props.setNewMessage(e.target.value);
+        }}
       />
-      <button className={classes["form__submit-btn"]}>
+      <button
+        className={classes["form__submit-btn"]}
+        onClick={(e) => {
+          e.preventDefault();
+
+          props.messageSubmitHandler();
+        }}
+      >
         <img
           className={classes["form__submit-icon"]}
           src="/assets/icon_send.svg"
