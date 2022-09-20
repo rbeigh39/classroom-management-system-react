@@ -25,7 +25,7 @@ const ChatItem = (props) => {
               alt="user"
             />
           </div>
-          <h3 className={classes["chat-header__name"]}>Rayan Beigh</h3>
+          <h3 className={classes["chat-header__name"]}>{props.name}</h3>
         </div>
       )}
 

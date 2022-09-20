@@ -89,6 +89,7 @@ const DiscussionForum = () => {
                 message={cur.message}
                 image={cur.photo ? cur.photo : undefined}
                 userImage={cur.author.photo}
+                name={cur.author.name}
               />
             );
           })}
