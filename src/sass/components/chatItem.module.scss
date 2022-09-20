@@ -69,8 +69,11 @@
   &__image-container {
     width: 100%;
     border-radius: 0.5rem;
-    margin-top: 0.8rem;
     overflow: hidden;
+
+    &:not(:last-child) {
+      margin-top: 0.8rem;
+    }
   }
 
   &__image {
