@@ -16,7 +16,7 @@ const ChatItem = (props) => {
         props.type === "local" ? classes["chat__container--local"] : ""
       }`}
     >
-      {props.type === "foreign" && (
+      {props.type === "foreign" && !props.isPrevUser && (
         <div className={classes["chat-header__container"]}>
           <div className={classes["chat-header__image-container"]}>
             <img
