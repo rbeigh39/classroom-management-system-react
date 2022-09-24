@@ -23,6 +23,7 @@ import Briefings from "./pages/Briefiings";
 import DiscussionForm from "./pages/DiscussionForum";
 import CommentsTab from "./pages/CommentsTab";
 import CreatePost from "./pages/CreatePost";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/create-notification" element={<CreateNotifications />} />
         <Route path="/create-resources" element={<CreateResources />} />
         <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
