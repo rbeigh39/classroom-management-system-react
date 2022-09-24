@@ -3,12 +3,11 @@ import React from "react";
 import TabHeader from "../components/TabHeader";
 import ChatItem from "../components/ChatItem";
 import ForumForm from "../components/ForumForm";
-import WorkInProgress from "./WorkInProgress";
+// import WorkInProgress from "./WorkInProgress";
 
 import classes from "../sass/pages/discussionForum.module.scss";
 
 const DiscussionForum = () => {
-  console.log("rendering discussion forum");
   return (
     <>
       <TabHeader title="Discussion Forum" />
