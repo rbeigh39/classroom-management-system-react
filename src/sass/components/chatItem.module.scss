@@ -2,7 +2,6 @@
 
 .chat-header {
   &__container {
-    //  background-color: orange;
     display: flex;
     align-items: center;
   }
@@ -24,7 +23,7 @@
     font-family: "Righteous", cursive;
     font-size: 1.4rem;
     letter-spacing: 0.2px;
-    background-image: linear-gradient(to bottom right, #6dc581, #45b489);
+    background-image: linear-gradient(to bottom right, #7ecc7d, #45b489);
     background-clip: text;
     color: transparent;
   }
@@ -54,7 +53,7 @@
 
   &__text {
     font-family: "Inter", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #504d4d;
 
     &:not(:first-child) {
@@ -71,14 +70,15 @@
     border-radius: 0.5rem;
     overflow: hidden;
 
-    &:not(:last-child) {
-      margin-top: 0.8rem;
-    }
+    // &:not(:last-child) {
+    //   margin-top: 0.8rem;
+    // }
   }
 
   &__image {
     width: 100%;
     border-radius: 0.5rem;
+    margin-top: 0.8rem;
   }
 
   &__download-container {
