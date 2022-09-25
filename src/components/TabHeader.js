@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Link } from "react-router-dom";
-
 import classes from "../sass/components/tabHeader.module.scss";
 
 const TabHeader = (props) => {
