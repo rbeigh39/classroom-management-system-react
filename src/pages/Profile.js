@@ -60,7 +60,7 @@ const Profile = (props) => {
       <div className={classes["profile-items__container"]}>
         <ProfileComment />
 
-        <FeedPost
+        {/* <FeedPost
           postText={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam debitis eveniet modi nulla. Consequuntur odio.`}
           userImage={`/users/img-1.jpg`}
           userName={`Rayan Beigh`}
@@ -79,7 +79,7 @@ const Profile = (props) => {
           userImage={`/users/img-1.jpg`}
           userName={`Rayan Beigh`}
           onClick={openCommentBar}
-        />
+        /> */}
       </div>
 
       <Outlet />
