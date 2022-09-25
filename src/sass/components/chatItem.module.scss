@@ -2,7 +2,6 @@
 
 .chat-header {
   &__container {
-    //  background-color: orange;
     display: flex;
     align-items: center;
   }
@@ -47,14 +46,14 @@
     &--local {
       border-radius: 2rem;
       border-top-right-radius: 0;
-      background-image: linear-gradient(to bottom right, #6dc581, #4bb7);
+      background-image: linear-gradient(to bottom right, #6dc581, #4bb788);
       margin-left: auto;
     }
   }
 
   &__text {
     font-family: "Inter", sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #504d4d;
 
     &:not(:first-child) {
@@ -69,13 +68,17 @@
   &__image-container {
     width: 100%;
     border-radius: 0.5rem;
-    margin-top: 0.8rem;
     overflow: hidden;
+
+    // &:not(:last-child) {
+    //   margin-top: 0.8rem;
+    // }
   }
 
   &__image {
     width: 100%;
     border-radius: 0.5rem;
+    margin-top: 0.8rem;
   }
 
   &__download-container {

@@ -70,6 +70,9 @@ const DiscussionForum = () => {
     }
   };
 
+  let prevUser = null;
+  let isPrevUser = false;
+
   return (
     <>
       <TabHeader title="Discussion Forum" />
@@ -82,6 +85,13 @@ const DiscussionForum = () => {
 
         <div className={classes["discussion-forum__chat-container"]}>
           {messages.map((cur) => {
+            isPrevUser = true;
+
+            if (cur.author._id !== prevUser) {
+              prevUser = cur.author._id;
+              isPrevUser = false;
+            }
+
             return (
               <ChatItem
                 key={cur._id}
@@ -90,6 +100,8 @@ const DiscussionForum = () => {
                 image={cur.photo ? cur.photo : undefined}
                 userImage={cur.author.photo}
                 name={cur.author.name}
+                isPrevUser={isPrevUser}
+                prevUser={prevUser}
               />
             );
           })}

@@ -28,19 +28,21 @@ const Briefings = () => {
     <>
       <TabHeader title="Briefings" />
 
-      {timeTable.map((cur) => {
-        return (
-          <div className={classes["time-table__container"]} key={cur._id}>
-            <h4 className={classes["time-table__subject"]}>{cur.subject}</h4>
-            <p className={classes["time-table__time"]}>
-              Starts at: {cur.startTime}
-            </p>
-            <p className={classes["time-table__time"]}>
-              Ends at: {cur.endTime}
-            </p>
-          </div>
-        );
-      })}
+      <div className={classes["briefings-container"]}>
+        {timeTable.map((cur) => {
+          return (
+            <div className={classes["time-table__container"]} key={cur._id}>
+              <h4 className={classes["time-table__subject"]}>{cur.subject}</h4>
+              <p className={classes["time-table__time"]}>
+                Starts at: {cur.startTime}
+              </p>
+              <p className={classes["time-table__time"]}>
+                Ends at: {cur.endTime}
+              </p>
+            </div>
+          );
+        })}
+      </div>
 
       {/* <WorkInProgress /> */}
     </>

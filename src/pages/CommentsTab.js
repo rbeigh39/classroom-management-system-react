@@ -22,20 +22,27 @@ const postComment = async (postId, comment) => {
 
 const CommentsTab = (props) => {
   const navigate = useNavigate();
-  const latestCommentRef = useRef(null);
+  const latestCommentRef = useRef();
+  const commentsContainerRef = useRef();
   const { postId } = useParams();
 
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [newPostedComment, setNewPostedComment] = useState("");
 
+  const [curPage, setCurPage] = useState(1);
+
+  let loadingPending = false;
+
   const postCommentHandler = async () => {
     if (newComment.replace(/\s+/g, "") === "") return;
 
     try {
       const res = await postComment(postId, newComment);
-      setNewPostedComment((prevState) => res.data.data.newComment);
+      setComments((prevState) => [...prevState, res.data.data.newComment]);
+      setNewComment(() => res.data.data.newComment);
       setNewComment(() => "");
+      latestCommentRef.current?.scrollIntoView();
     } catch (err) {
       console.log("Error posting comment!");
       window.alert("Error posting comment!");
@@ -45,24 +52,44 @@ const CommentsTab = (props) => {
   useEffect(() => {
     axios({
       method: "GET",
-      url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/comments/${postId}`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/comments/${postId}?page=${curPage}&limit=10`,
       withCredentials: true,
     })
       .then((res) => {
-        setComments(() => [...res.data.data.comments]);
+        setComments((prevState) => [
+          ...res.data.data.comments.reverse(),
+          ...prevState,
+        ]);
       })
       .catch((err) => {
         console.log("error fetching comments: ", err);
         window.alert("Error fetching comments!");
       });
-  }, [newPostedComment]);
+  }, [curPage]);
 
   useEffect(() => {
-    latestCommentRef.current?.scrollIntoView();
+    if (curPage === 1) latestCommentRef.current?.scrollIntoView();
   }, [comments]);
 
+  const onScrollCommentContainer = () => {
+    if (loadingPending) return;
+
+    if (commentsContainerRef.current) {
+      const { scrollTop } = commentsContainerRef.current;
+
+      if (scrollTop === 0) {
+        loadingPending = true;
+        setCurPage((prevState) => prevState + 1);
+      }
+    }
+  };
+
   return (
-    <section className={classes["comments-tab__container"]}>
+    <section
+      className={classes["comments-tab__container"]}
+      ref={commentsContainerRef}
+      onScroll={onScrollCommentContainer}
+    >
       <div className={classes["comments-tab__close-btn-container"]}>
         <button
           className={classes["comments-tab__close-button"]}
@@ -75,7 +102,7 @@ const CommentsTab = (props) => {
       {comments.map((cur) => {
         return (
           <Comment
-            key={cur.author}
+            key={cur._id}
             name={cur.author.name}
             photo={cur.author.photo}
             comment={cur.comment}

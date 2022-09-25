@@ -11,14 +11,6 @@ const BottomTabBar = () => {
   const [isActiveBriefings, setIsActiveBriefings] = useState(false);
   const [isActiveForum, setIsActiveForum] = useState(false);
 
-  console.log("these are the flags: ", {
-    isActiveHome,
-    isActiveNotification,
-    isActiveResources,
-    isActiveBriefings,
-    isActiveForum,
-  });
-
   const setActiveTarget = (target) => {
     setIsActiveHome(false);
     setIsActiveNotification(false);
@@ -47,35 +39,40 @@ const BottomTabBar = () => {
           iconAltName="Home"
           isActive={isActiveHome}
           setTarget={setActiveTarget}
-          target="/tab-pages/home"
+          linkTo="/tab-pages/home"
+          target="home"
         />
         <IconTabBar
           icon="icon_notification.svg"
           iconAltName="Home"
           isActive={isActiveNotification}
           setTarget={setActiveTarget}
-          target="/tab-pages/notifications"
+          linkTo="/tab-pages/notifications"
+          target="notifications"
         />
         <IconTabBar
           icon="icon_resources_2.svg"
           iconAltName="Home"
           isActive={isActiveResources}
           setTarget={setActiveTarget}
-          target="/tab-pages/resources"
+          linkTo="/tab-pages/resources"
+          target="resources"
         />
         <IconTabBar
           icon="icon_briefings.svg"
           iconAltName="Home"
           isActive={isActiveBriefings}
           setTarget={setActiveTarget}
-          target="/tab-pages/briefings"
+          linkTo="/tab-pages/briefings"
+          target="briefings"
         />
         <IconTabBar
           icon="icon_discussionForum.svg"
           iconAltName="Home"
           isActive={isActiveForum}
           setTarget={setActiveTarget}
-          target="/forum"
+          linkTo="/forum"
+          target="forum"
         />
       </nav>
     </div>

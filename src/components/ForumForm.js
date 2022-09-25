@@ -3,8 +3,6 @@ import React from "react";
 import classes from "../sass/components/forumForm.module.scss";
 
 const forumForm = (props) => {
-  console.log("rendering this component!");
-
   return (
     <form className={classes["form__container"]}>
       {/* <div className={classes["form__add-container"]}>

@@ -16,7 +16,7 @@ const IconTabBar = (props) => {
         className={`${classes["tab-bar__icon"]} ${classes[activeClass]}`}
         onClick={() => {
           props.setTarget(props.target);
-          navigate(`${props.target}`);
+          navigate(`${props.linkTo}`);
         }}
       />
       {/* <div

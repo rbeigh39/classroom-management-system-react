@@ -7,7 +7,7 @@ const Comment = (props) => {
     <div className={classes["comment__container"]}>
       <img
         className={classes["comment__user-photo"]}
-        src="/users/man-1.jpg"
+        src={`${process.env.REACT_APP_BACKEND_URL}/img/users/${props.photo}`}
         alt="user"
       />
       <div className={classes["comment__content-box"]}>
