@@ -1,0 +1,110 @@
+@import "../base/base.scss";
+
+.profile-page {
+  &__container {
+    padding: 1.2rem 1rem;
+  }
+
+  &__background {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, #79c778, #47b68b);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+.profile-header {
+  &__container {
+    width: 100%;
+    //  max-width: $default-max-width;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //  padding: 0 1rem;
+    //  margin-top: 1.2rem;
+  }
+
+  &__icon {
+    height: 4.5rem;
+    width: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon-home,
+  &__icon-settings {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%)
+      hue-rotate(186deg) brightness(111%) contrast(101%);
+  }
+
+  &__icon-home {
+  }
+
+  &__heading {
+    font-family: "Righteous", cursive;
+    font-size: 2rem;
+    color: $color-white;
+    //  letter-spacing: 0.09rem;
+    font-weight: lighter;
+  }
+
+  &__icon-settings {
+  }
+}
+
+.profile-info {
+  &__container {
+    //  width: max-content;
+    margin: 5.6rem auto 1.6rem auto;
+    max-width: $default-max-width;
+  }
+
+  &__image-container {
+    height: 12rem;
+    width: 12rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.5rem solid $color-white;
+    margin: auto;
+  }
+
+  &__profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    display: block;
+    font-family: "Righteous", cursive;
+    font-size: 2rem;
+    width: max-content;
+    margin: 1rem auto;
+    color: $color-white;
+    //  letter-spacing: 0.08rem;
+    font-weight: lighter;
+  }
+
+  &__tagline {
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    display: block;
+    width: 50%;
+    margin: auto;
+    max-width: $default-max-width;
+    text-align: center;
+    color: $color-white;
+  }
+}
+
+.profile-items__container {
+  width: 100%;
+  max-width: $default-max-width;
+  margin: auto;
+  margin-top: 1.6rem;
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+
 import classes from "../sass/components/tabHeader.module.scss";
 
 const TabHeader = (props) => {
@@ -16,13 +18,13 @@ const TabHeader = (props) => {
 
       <h1 className={classes["header__title"]}>{props.title}</h1>
 
-      <div className={classes["header__menu-icon-box"]}>
+      <Link to="/profile" className={classes["header__profile-icon-box"]}>
         <img
-          src="/assets/icon_menu.svg"
-          alt="Menu icon"
-          className={classes["header__menu-icon"]}
+          src="/assets/icon_profile.svg"
+          alt="Profile"
+          className={classes["header__profile-icon"]}
         />
-      </div>
+      </Link>
     </header>
   );
 };
