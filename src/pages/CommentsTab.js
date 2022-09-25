@@ -14,7 +14,7 @@ const CommentsTab = (props) => {
       <div className={classes["comments-tab__close-btn-container"]}>
         <button
           className={classes["comments-tab__close-button"]}
-          onClick={() => navigate("/tab-pages/home")}
+          onClick={() => navigate(props.backLink)}
         >
           Close
         </button>

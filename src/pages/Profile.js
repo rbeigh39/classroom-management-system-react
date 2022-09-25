@@ -1,13 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 import classes from "../sass/pages/profile.module.scss";
 
 import ProfileTab from "../components/ProfileTab";
 import FeedPost from "../components/FeedPost";
+import ProfileComment from "../components/ProfileComment";
 
 const Profile = (props) => {
+  const navigate = useNavigate();
+
   const [profileTab, setProfileTab] = useState("posts");
+
+  const openCommentBar = () => {
+    navigate("/profile/comment-tab");
+  };
 
   return (
     <div className={classes["profile-page__container"]}>
@@ -51,24 +58,31 @@ const Profile = (props) => {
       <ProfileTab profileTab={profileTab} setProfileTab={setProfileTab} />
 
       <div className={classes["profile-items__container"]}>
+        <ProfileComment />
+
         <FeedPost
           postText={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam debitis eveniet modi nulla. Consequuntur odio.`}
           userImage={`/users/img-1.jpg`}
           userName={`Rayan Beigh`}
+          onClick={openCommentBar}
         />
 
         <FeedPost
           postText={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam debitis eveniet modi nulla. Consequuntur odio.`}
           userImage={`/users/img-1.jpg`}
           userName={`Rayan Beigh`}
+          onClick={openCommentBar}
         />
 
         <FeedPost
           postText={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam debitis eveniet modi nulla. Consequuntur odio.`}
           userImage={`/users/img-1.jpg`}
           userName={`Rayan Beigh`}
+          onClick={openCommentBar}
         />
       </div>
+
+      <Outlet />
     </div>
   );
 };

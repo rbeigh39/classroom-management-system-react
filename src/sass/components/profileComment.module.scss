@@ -1,0 +1,34 @@
+@import "../base/base.scss";
+
+.comment {
+  &__container {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    border: 1px solid $color-strokeLine;
+    padding: 1.2rem;
+
+    &:not(:last-child) {
+      margin-bottom: 1.6rem;
+    }
+  }
+
+  &__date {
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    color: #929292;
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-size: 1.4rem;
+    color: #504d4d;
+    margin: 0.8rem auto;
+  }
+
+  &__post-link {
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-family: "Inter", sans-serif;
+    color: #aa8bff;
+  }
+}

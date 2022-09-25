@@ -31,9 +31,13 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
         <Route path="/tab-pages" element={<TabsContainer />}>
           <Route path="home" element={<Feed />}>
-            <Route path="comment-tab" element={<CommentsTab />} />
+            <Route
+              path="comment-tab"
+              element={<CommentsTab backLink="/tab-pages/home" />}
+            />
           </Route>
           <Route path="notifications" element={<Notifications />} />
           <Route path="resources" element={<Resources />} />
@@ -44,7 +48,12 @@ function App() {
         <Route path="/create-notification" element={<CreateNotifications />} />
         <Route path="/create-resources" element={<CreateResources />} />
         <Route path="/create-post" element={<CreatePost />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />}>
+          <Route
+            path="comment-tab"
+            element={<CommentsTab backLink="/profile" />}
+          />
+        </Route>
       </Routes>
     </Router>
   );
