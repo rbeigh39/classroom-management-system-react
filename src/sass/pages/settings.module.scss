@@ -1,0 +1,119 @@
+@import "../base/base.scss";
+
+.settings-page-background {
+  height: 100vh;
+  background-color: #f6f6f6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.settings-header {
+  &__container {
+    display: flex;
+    width: 100%;
+    //  max-width: $default-max-width;
+    padding: 0 1.6rem;
+    position: relative;
+    margin: 1.6rem auto;
+  }
+
+  &__back-container {
+    height: 2rem;
+  }
+
+  &__back-icon {
+    height: 2rem;
+  }
+
+  &__heading {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Righteous", cursive;
+    font-weight: lighter;
+    background-image: linear-gradient(
+      to bottom right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    color: transparent;
+    background-clip: text;
+    font-size: 2rem;
+  }
+}
+
+.settings-profile {
+  &__container {
+    width: 100%;
+    max-width: $default-max-width;
+    margin: 4.8rem auto 2.5rem auto;
+    display: grid;
+    grid-template-columns: 4.5rem 3fr max-content;
+    grid-row-gap: 0.4rem;
+    align-items: center;
+    padding: 0 1.6rem;
+  }
+
+  &__image-container {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__name {
+    margin-left: 0.8rem;
+    font-family: "Righteous", cursive;
+    font-weight: lighter;
+    font-size: 1.6rem;
+    color: #525855;
+  }
+
+  &__edit-btn-container {
+  }
+
+  &__edit-btn {
+    background-color: #5ebe82;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10rem;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    color: $color-white;
+  }
+
+  &__status-container {
+    grid-column-start: 2;
+    padding-left: 0.8rem;
+  }
+
+  &__status-item {
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    color: #767d7a;
+
+    &:not(:last-child) {
+      margin-bottom: 0.4rem;
+    }
+  }
+}
+
+.settings-features {
+  //   background-color: orange;
+  width: 100%;
+  max-width: $default-max-width;
+  margin: auto;
+  padding: 0 1.6rem;
+
+  &__list {
+    list-style-type: none;
+  }
+}

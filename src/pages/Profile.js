@@ -86,7 +86,7 @@ const Profile = (props) => {
 
         <h1 className={classes["profile-header__heading"]}>Profile</h1>
 
-        <Link to="/tab-pages/home" className={classes["profile-header__icon"]}>
+        <Link to="/settings" className={classes["profile-header__icon"]}>
           <img
             src="/assets/icon_settings.svg"
             alt="Settings"

@@ -1,0 +1,28 @@
+@import "../base/base.scss";
+
+.settings-features {
+  &__link {
+    text-decoration: none;
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+    font-family: "Inter", sans-serif;
+    font-size: 1.6rem;
+    color: #525855;
+  }
+
+  &__icon-container {
+    height: 4.5rem;
+    width: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.6rem;
+  }
+
+  &__icon {
+    height: 2.2rem;
+  }
+}
