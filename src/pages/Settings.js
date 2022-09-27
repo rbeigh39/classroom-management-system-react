@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import SettingsFeatureItem from "../components/SettingsFeatureItem";
+import AuthContext from "../store/authContext";
 
 import classes from "../sass/pages/settings.module.scss";
 
 const Settings = (props) => {
+  const authCtx = useContext(AuthContext);
+
   return (
     <>
       <div className={classes["settings-page"]}>&nbsp;</div>
@@ -48,11 +51,11 @@ const Settings = (props) => {
 
           <div className={classes["settings-profile__status-container"]}>
             <p className={classes["settings-profile__status-item"]}>
-              Email: rbeigh39@gmail.com
+              Email: {authCtx.user && authCtx.user.email}
             </p>
 
             <p className={classes["settings-profile__status-item"]}>
-              Role: admin
+              Role: {authCtx.user && authCtx.user.role}
             </p>
           </div>
         </section>
@@ -63,12 +66,15 @@ const Settings = (props) => {
               title="Change Password"
               link="/change-password"
               icon="icon_lock.svg"
+              type="link"
             />
 
             <SettingsFeatureItem
               title="Logout"
               link="/logout"
               icon="icon_logout.svg"
+              type="button"
+              onClick={authCtx.logoutHandler}
             />
           </ul>
         </section>

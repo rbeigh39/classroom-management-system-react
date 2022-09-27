@@ -5,7 +5,7 @@ import IconTabBar from "./IconTabBar";
 import classes from "../sass/components/bottomTabBar.module.scss";
 
 const BottomTabBar = () => {
-  const [isActiveHome, setIsActiveHome] = useState(false);
+  const [isActiveHome, setIsActiveHome] = useState(true);
   const [isActiveNotification, setIsActiveNotification] = useState(false);
   const [isActiveResources, setIsActiveResources] = useState(false);
   const [isActiveBriefings, setIsActiveBriefings] = useState(false);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ import classes from "../sass/pages/profile.module.scss";
 import ProfileTab from "../components/ProfileTab";
 import FeedPost from "../components/FeedPost";
 import ProfileComment from "../components/ProfileComment";
+import AuthContext from "../store/authContext";
 
 import dateFormater from "../utilities/dateFormater";
 
@@ -28,6 +29,8 @@ const loadData = async (type) => {
 
 const Profile = (props) => {
   const navigate = useNavigate();
+  const authCtx = useContext(AuthContext);
+  const user = authCtx.user;
 
   const [profileTab, setProfileTab] = useState("posts");
 
@@ -99,15 +102,13 @@ const Profile = (props) => {
         <figure className={classes["profile-info__image-container"]}>
           <img
             className={classes["profile-info__profile-picture"]}
-            src="/users/img-1.jpg"
+            src={`${process.env.REACT_APP_BACKEND_URL}/img/users/${user.photo}`}
             alt="Profile"
           />
         </figure>
 
-        <h2 className={classes["profile-info__name"]}>Rayan Beigh</h2>
-        <p className={classes["profile-info__tagline"]}>
-          Full stack Developer and Designer
-        </p>
+        <h2 className={classes["profile-info__name"]}>{user.name}</h2>
+        <p className={classes["profile-info__tagline"]}>{user.tagLine}</p>
       </div>
 
       <ProfileTab profileTab={profileTab} setProfileTab={setProfileTab} />
