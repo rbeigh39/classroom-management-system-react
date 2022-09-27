@@ -48,7 +48,7 @@ function App() {
       <Route path="/create-post" element={<CreatePost />} />
       <Route path="/profile" element={<Profile />}>
         <Route
-          path="comment-tab"
+          path="comment-tab/:postId"
           element={<CommentsTab backLink="/profile" />}
         />
       </Route>

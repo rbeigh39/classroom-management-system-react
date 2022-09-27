@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import classes from "../sass/pages/profile.module.scss";
 
@@ -7,13 +8,67 @@ import ProfileTab from "../components/ProfileTab";
 import FeedPost from "../components/FeedPost";
 import ProfileComment from "../components/ProfileComment";
 
+import dateFormater from "../utilities/dateFormater";
+
+const loadData = async (type) => {
+  let urlEndPoint = null;
+
+  if (type === "createdByMe") urlEndPoint = "/api/v1/users/posts";
+  if (type === "likedByMe") urlEndPoint = "/api/v1/users/likes";
+  if (type === "myComments") urlEndPoint = "/api/v1/users/comments";
+
+  const res = await axios({
+    method: "GET",
+    url: `${process.env.REACT_APP_BACKEND_URL}${urlEndPoint}`,
+    withCredentials: true,
+  });
+
+  return res;
+};
+
 const Profile = (props) => {
   const navigate = useNavigate();
 
   const [profileTab, setProfileTab] = useState("posts");
 
-  const openCommentBar = () => {
-    navigate("/profile/comment-tab");
+  const [selfCreatedPosts, setSelfCreatedPosts] = useState([]);
+  const [likedPosts, setLikedPosts] = useState([]);
+  const [myComments, setMyComments] = useState([]);
+
+  useEffect(() => {
+    if (profileTab === "posts") {
+      loadData("createdByMe")
+        .then((res) => {
+          setSelfCreatedPosts((prevState) => [...res.data.data.posts]);
+        })
+        .catch((err) => {
+          console.log("something went wrong fetching posts! ", err);
+        });
+    }
+
+    if (profileTab === "likes") {
+      loadData("likedByMe")
+        .then((res) => {
+          setLikedPosts((prevState) => [...res.data.data.posts]);
+        })
+        .catch((err) => {
+          console.log("something went wrong fetching posts!", err);
+        });
+    }
+
+    if (profileTab === "comments") {
+      loadData("myComments")
+        .then((res) => {
+          setMyComments((prevState) => [...res.data.data.comments]);
+        })
+        .catch((err) => {
+          console.log("Something wrong fetching comments!", err);
+        });
+    }
+  }, [profileTab]);
+
+  const openCommentBar = (postId) => {
+    navigate(`/profile/comment-tab/${postId}`);
   };
 
   return (
@@ -58,28 +113,94 @@ const Profile = (props) => {
       <ProfileTab profileTab={profileTab} setProfileTab={setProfileTab} />
 
       <div className={classes["profile-items__container"]}>
-        <ProfileComment />
+        {profileTab === "posts" &&
+          selfCreatedPosts.map((cur) => {
+            const image = cur.image;
+            let imgLink = null;
 
-        {/* <FeedPost
-          postText={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam debitis eveniet modi nulla. Consequuntur odio.`}
-          userImage={`/users/img-1.jpg`}
-          userName={`Rayan Beigh`}
-          onClick={openCommentBar}
-        />
+            if (image) {
+              imgLink = `${process.env.REACT_APP_BACKEND_URL}/img/posts/${image}`;
+            } else {
+              imgLink = "";
+            }
 
-        <FeedPost
-          postText={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam debitis eveniet modi nulla. Consequuntur odio.`}
-          userImage={`/users/img-1.jpg`}
-          userName={`Rayan Beigh`}
-          onClick={openCommentBar}
-        />
+            return (
+              <FeedPost
+                key={cur._id}
+                postId={cur._id}
+                userName={cur.author.name}
+                userImage={`${process.env.REACT_APP_BACKEND_URL}/img/users/${cur.author.photo}`}
+                onClick={openCommentBar}
+                imageLink={imgLink}
+                postText={cur.message}
+                timeStamp={dateFormater(cur.createdAt)}
+                likes={cur.likes}
+                likesCount={cur.noOfLikes}
+                commentsCount={cur.noOfComments}
+              />
+            );
+          })}
 
-        <FeedPost
-          postText={`Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam debitis eveniet modi nulla. Consequuntur odio.`}
-          userImage={`/users/img-1.jpg`}
-          userName={`Rayan Beigh`}
-          onClick={openCommentBar}
-        /> */}
+        {profileTab === "likes" &&
+          likedPosts.map((curEl) => {
+            const cur = curEl.post;
+
+            const image = cur.image;
+            let imgLink = null;
+
+            if (image) {
+              imgLink = `${process.env.REACT_APP_BACKEND_URL}/img/posts/${image}`;
+            } else {
+              imgLink = "";
+            }
+
+            return (
+              <FeedPost
+                key={cur._id}
+                postId={cur._id}
+                userName={cur.author.name}
+                userImage={`${process.env.REACT_APP_BACKEND_URL}/img/users/${cur.author.photo}`}
+                onClick={openCommentBar}
+                imageLink={imgLink}
+                postText={cur.message}
+                timeStamp={dateFormater(cur.createdAt)}
+                likes={cur.likes}
+                likesCount={cur.noOfLikes}
+                commentsCount={cur.noOfComments}
+              />
+            );
+          })}
+
+        {profileTab === "comments" &&
+          myComments.map((cur) => {
+            return (
+              <ProfileComment
+                key={cur._id}
+                timeStamp={dateFormater(cur.createdAt)}
+                comment={cur.comment}
+              />
+            );
+          })}
+
+        {/* {profileTab === 'comments' && } */}
+
+        {/* <ProfileComment /> */}
+
+        {/*
+         <FeedPost
+            key={cur._id}
+            postId={cur._id}
+            userName={cur.author.name}
+            userImage={`${process.env.REACT_APP_BACKEND_URL}/img/users/${cur.author.photo}`}
+            onClick={openCommentBar}
+            imageLink={imgLink}
+            postText={cur.message}
+            timeStamp={dateFormater(cur.createdAt)}
+            likes={cur.likes}
+            likesCount={cur.noOfLikes}
+            commentsCount={cur.noOfComments}
+          /> 
+        */}
       </div>
 
       <Outlet />
