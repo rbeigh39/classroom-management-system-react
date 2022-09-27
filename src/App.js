@@ -24,6 +24,7 @@ import DiscussionForm from "./pages/DiscussionForum";
 import CommentsTab from "./pages/CommentsTab";
 import CreatePost from "./pages/CreatePost";
 import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           element={<CommentsTab backLink="/profile" />}
         />
       </Route>
+      <Route path="/settings" element={<Settings />} />
     </Routes>
     // </Router>
   );
