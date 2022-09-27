@@ -1,0 +1,83 @@
+@import "../base/base.scss";
+
+.settings-page {
+  height: 100vh;
+  color: #f6f6f6;
+}
+
+.settings-header {
+  &__container {
+    display: flex;
+    width: 100%;
+    //  max-width: $default-max-width;
+    padding: 0 1.6rem;
+    position: relative;
+    margin: 1.6rem auto;
+  }
+
+  &__back-container {
+    height: 2rem;
+  }
+
+  &__back-icon {
+    height: 2rem;
+  }
+
+  &__heading {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Righteous", cursive;
+    font-weight: lighter;
+    background-image: linear-gradient(
+      to bottom right,
+      $color-primary-light,
+      $color-primary-dark
+    );
+    color: transparent;
+    background-clip: text;
+    font-size: 2rem;
+  }
+}
+
+.settings {
+  &__container {
+    width: 100%;
+    max-width: $default-max-width;
+    margin: 4.8rem auto;
+    display: grid;
+    grid-template-columns: 4.5rem 3fr 1fr;
+    align-items: center;
+  }
+
+  &__profile-pic-container {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__profile-pic-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__profile-name {
+    margin-left: 0.8rem;
+    font-family: "Righteous", cursive;
+    font-weight: lighter;
+    font-size: 1.6rem;
+    color: #525855;
+  }
+
+  &__profile-edit-btn {
+    background-color: #5ebe82;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10rem;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+    color: $color-white;
+  }
+}
