@@ -20,7 +20,7 @@
     margin: 1.2rem;
     margin-top: 2.2rem;
     display: grid;
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: min-content 1fr max-content;
     grid-column-gap: 1rem;
     grid-row-gap: 1.6rem;
   }
@@ -43,15 +43,21 @@
     font-weight: 500;
   }
 
+  &__menu-container {
+    position: relative;
+  }
+
   &__text {
     font-family: "Inter", sans-serif;
     font-size: 1.4rem;
     color: #504d4d;
+    grid-column: span 2;
   }
 
   &__image-container {
     width: 100%;
     backface-visibility: hidden;
+    position: relative;
   }
 
   &__image {
@@ -101,5 +107,101 @@
   &__reaction-icon {
     height: 1.5rem;
     margin-right: 0.8rem;
+  }
+}
+
+.post-menu {
+  &__label {
+    // display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 3.4rem;
+    width: 3.4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    backface-visibility: hidden;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #ececec;
+    }
+
+    & > * {
+      width: 2rem;
+    }
+  }
+
+  &__icon {
+  }
+
+  &__checkbox {
+    display: none;
+    visibility: hidden;
+  }
+
+  &__options-container {
+    background-color: $color-white;
+    padding: 0.6rem;
+    border-radius: 0.8rem;
+    border-top-right-radius: 0;
+    border: 1px solid $color-strokeLine;
+    box-shadow: 0 0.4rem 1rem rgba(#000, 0.2);
+    position: absolute;
+    right: 0;
+    top: 2.4rem;
+    z-index: 20;
+  }
+
+  &__options-list {
+    list-style-type: none;
+  }
+
+  &__options-list-item {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__option-button {
+    color: #7a7171;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 0.8rem;
+    padding-left: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: 1px solid #fff;
+    background-color: transparent;
+    border-radius: 0.6rem;
+    transition: all 0.1s;
+
+    &:hover {
+      background-color: #ececec;
+    }
+
+    &:active {
+      background-color: #dfdfdf;
+    }
+  }
+
+  &__options-list-icon-container {
+    // background-color: orange;
+    width: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.6rem;
+  }
+
+  &__item-icon {
+    height: 1.6rem;
   }
 }

@@ -24,6 +24,7 @@ const Feed = () => {
           postText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
           debitis eveniet modi nulla. Consequuntur odio."
           timeStamp="Aug 23, 11:30pm"
+          id="1"
         />
 
         <FeedPost
@@ -33,6 +34,7 @@ const Feed = () => {
           postText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
           debitis eveniet modi nulla. Consequuntur odio."
           timeStamp="Aug 21, 10:01am"
+          id="2"
         />
 
         <FeedPost
@@ -42,6 +44,7 @@ const Feed = () => {
           postText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
           debitis eveniet modi nulla. Consequuntur odio."
           timeStamp="Aug 21, 10:01am"
+          id="3"
         />
 
         <FeedPost
@@ -52,6 +55,7 @@ const Feed = () => {
           postText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
           debitis eveniet modi nulla. Consequuntur odio."
           timeStamp="Aug 23, 11:30pm"
+          id="4"
         />
 
         <FeedPost
@@ -61,6 +65,7 @@ const Feed = () => {
           postText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
           debitis eveniet modi nulla. Consequuntur odio."
           timeStamp="Aug 21, 10:01am"
+          id="5"
         />
       </main>
 
