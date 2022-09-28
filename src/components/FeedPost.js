@@ -9,6 +9,7 @@ const FeedPost = (props) => {
   const authCtx = useContext(AuthContext);
 
   const [hasLiked, setHasLiked] = useState(false);
+  const [menuIsChecked, setMenuIsChecked] = useState(false);
 
   useEffect(() => {
     props.likes.forEach((cur) => {
