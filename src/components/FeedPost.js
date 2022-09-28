@@ -42,43 +42,47 @@ const FeedPost = (props) => {
             className={classes["post-menu__checkbox"]}
           />
 
-          <div className={classes["post-menu__options-container"]}>
-            <ul className={classes["post-menu__options-list"]}>
-              <li className={classes["post-menu__options-list-item"]}>
-                <button className={classes["post-menu__option-button"]}>
-                  <div
-                    className={
-                      classes["post-menu__options-list-icon-container"]
-                    }
+          {menuIsChecked && (
+            <div className={classes["post-menu__options-container"]}>
+              <ul className={classes["post-menu__options-list"]}>
+                <li className={classes["post-menu__options-list-item"]}>
+                  <button
+                    className={`${classes["post-menu__option-button"]} ${classes["post-menu__option-button--danger"]}`}
                   >
-                    <img
-                      src="/assets/icon_trash-can.svg"
-                      alt="icon delete"
-                      className={classes["post-menu__item-icon"]}
-                    />
-                  </div>
-                  Delete
-                </button>
-              </li>
+                    <div
+                      className={
+                        classes["post-menu__options-list-icon-container"]
+                      }
+                    >
+                      <img
+                        src="/assets/icon_trash-can.svg"
+                        alt="icon delete"
+                        className={classes["post-menu__item-icon"]}
+                      />
+                    </div>
+                    Delete
+                  </button>
+                </li>
 
-              <li className={classes["post-menu__options-list-item"]}>
-                <button className={classes["post-menu__option-button"]}>
-                  <div
-                    className={
-                      classes["post-menu__options-list-icon-container"]
-                    }
-                  >
-                    <img
-                      src="/assets/icon_share.svg"
-                      alt="icon delete"
-                      className={classes["post-menu__item-icon"]}
-                    />
-                  </div>
-                  Share
-                </button>
-              </li>
-            </ul>
-          </div>
+                <li className={classes["post-menu__options-list-item"]}>
+                  <button className={classes["post-menu__option-button"]}>
+                    <div
+                      className={
+                        classes["post-menu__options-list-icon-container"]
+                      }
+                    >
+                      <img
+                        src="/assets/icon_share.svg"
+                        alt="icon share"
+                        className={classes["post-menu__item-icon"]}
+                      />
+                    </div>
+                    Share
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
 
         {postText && <p className={classes["post__text"]}>{props.postText}</p>}

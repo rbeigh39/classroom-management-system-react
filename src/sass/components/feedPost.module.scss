@@ -145,14 +145,16 @@
   &__options-container {
     background-color: $color-white;
     padding: 0.6rem;
-    border-radius: 0.8rem;
+    border-radius: 1rem;
     border-top-right-radius: 0;
     border: 1px solid $color-strokeLine;
     box-shadow: 0 0.4rem 1rem rgba(#000, 0.2);
     position: absolute;
     right: 0;
-    top: 2.4rem;
+    top: 3rem;
     z-index: 20;
+    animation: moveInTopRight 0.2s ease-in-out;
+    transform-origin: top right;
   }
 
   &__options-list {
@@ -190,6 +192,12 @@
     &:active {
       background-color: #dfdfdf;
     }
+
+    &--danger {
+      &:hover {
+        border: 1px solid $color-critical;
+      }
+    }
   }
 
   &__options-list-icon-container {
@@ -203,5 +211,21 @@
 
   &__item-icon {
     height: 1.6rem;
+  }
+}
+
+@keyframes moveInTopRight {
+  0% {
+    transform: scale(0);
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    visibility: visible;
+    display: block;
+    opacity: 1;
   }
 }
