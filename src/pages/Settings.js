@@ -32,13 +32,17 @@ const Settings = (props) => {
         <section className={classes["settings-profile__container"]}>
           <div className={classes["settings-profile__imgage-container"]}>
             <img
-              src={`${process.env.REACT_APP_BACKEND_URL}/img/users/user-632c9bb775df8800160b005b-1664002368778.jpeg`}
+              src={`${process.env.REACT_APP_BACKEND_URL}/img/users/${
+                authCtx.user && authCtx.user.photo
+              }`}
               alt="Profile"
               className={classes["settings-profile__image"]}
             />
           </div>
 
-          <h2 className={classes["settings-profile__name"]}>Rayan Beigh</h2>
+          <h2 className={classes["settings-profile__name"]}>
+            {authCtx.user && authCtx.user.name}
+          </h2>
 
           <div className={classes["settings-profile__edit-btn-container"]}>
             <Link
