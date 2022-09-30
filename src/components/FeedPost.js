@@ -70,7 +70,7 @@ const FeedPost = (props) => {
         <div className={classes["post__menu-container"]}>
           <label
             className={classes["post-menu__label"]}
-            htmlFor={`post-menu-toggle-${props.id}`}
+            htmlFor={`post-menu-toggle-${props.postId}`}
           >
             <img
               src="/assets/icon_dot-menu.svg"
@@ -84,7 +84,7 @@ const FeedPost = (props) => {
             onChange={() => {
               setMenuIsChecked(!menuIsChecked);
             }}
-            id={`post-menu-toggle-${props.id}`}
+            id={`post-menu-toggle-${props.postId}`}
             className={classes["post-menu__checkbox"]}
           />
 
