@@ -58,7 +58,6 @@ const FeedPost = (props) => {
     deletePostRequest(props.postId)
       .then((res) => {
         props.removePost(props.postId);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log("error deleting post");

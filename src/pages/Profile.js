@@ -47,7 +47,10 @@ const Profile = (props) => {
 
     if (profileTab === "likes") {
       setLikedPosts((prevState) => {
-        return prevState.filter((cur) => cur.post._id !== postId);
+        return prevState.filter((cur) => {
+          if (!cur.post) return false;
+          return cur.post._id !== postId;
+        });
       });
     }
   };
@@ -159,6 +162,8 @@ const Profile = (props) => {
 
         {profileTab === "likes" &&
           likedPosts.map((curEl) => {
+            if (!curEl.post) return null;
+
             const cur = curEl.post;
 
             const image = cur.image;
