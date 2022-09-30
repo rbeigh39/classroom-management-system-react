@@ -5,6 +5,16 @@ import AuthContext from "../store/authContext";
 
 import classes from "../sass/components/feedPost.module.scss";
 
+const deletePostRequest = async (postId) => {
+  const res = await axios({
+    method: "DELETE",
+    url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/posts/${postId}`,
+    withCredentials: true,
+  });
+
+  return res;
+};
+
 const FeedPost = (props) => {
   const authCtx = useContext(AuthContext);
 
@@ -42,6 +52,17 @@ const FeedPost = (props) => {
       console.log("something went wrong!", err);
       window.alert("Soemthing went wrong!");
     }
+  };
+
+  const deletePostHandler = () => {
+    deletePostRequest(props.postId)
+      .then((res) => {
+        props.removePost(props.postId);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("error deleting post");
+      });
   };
 
   let imageLink = null;
@@ -94,6 +115,10 @@ const FeedPost = (props) => {
                 <li className={classes["post-menu__options-list-item"]}>
                   <button
                     className={`${classes["post-menu__option-button"]} ${classes["post-menu__option-button--danger"]}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      deletePostHandler();
+                    }}
                   >
                     <div
                       className={

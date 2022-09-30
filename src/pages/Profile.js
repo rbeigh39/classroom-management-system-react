@@ -33,10 +33,25 @@ const Profile = (props) => {
   const user = authCtx.user;
 
   const [profileTab, setProfileTab] = useState("posts");
+  console.log(profileTab);
 
   const [selfCreatedPosts, setSelfCreatedPosts] = useState([]);
   const [likedPosts, setLikedPosts] = useState([]);
   const [myComments, setMyComments] = useState([]);
+
+  const removePost = (postId) => {
+    if (profileTab === "posts") {
+      setSelfCreatedPosts((prevState) => {
+        return prevState.filter((cur) => cur._id !== postId);
+      });
+    }
+
+    if (profileTab === "likes") {
+      setLikedPosts((prevState) => {
+        return prevState.filter((cur) => cur.post._id !== postId);
+      });
+    }
+  };
 
   useEffect(() => {
     if (profileTab === "posts") {
@@ -138,6 +153,7 @@ const Profile = (props) => {
                 likes={cur.likes}
                 likesCount={cur.noOfLikes}
                 commentsCount={cur.noOfComments}
+                removePost={removePost}
               />
             );
           })}
@@ -168,6 +184,7 @@ const Profile = (props) => {
                 likes={cur.likes}
                 likesCount={cur.noOfLikes}
                 commentsCount={cur.noOfComments}
+                removePost={removePost}
               />
             );
           })}

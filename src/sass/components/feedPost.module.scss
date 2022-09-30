@@ -131,7 +131,7 @@
     width: 3.4rem;
     position: absolute;
     top: -0.8rem;
-    right: 0;
+    right: -0.8rem;
     backface-visibility: hidden;
     transition: all 0.2s;
 
@@ -162,7 +162,7 @@
     position: absolute;
     right: 0;
     top: 3rem;
-    z-index: 20;
+    z-index: 1;
     animation: moveInTopRight 0.2s ease-in-out;
     transform-origin: top right;
   }

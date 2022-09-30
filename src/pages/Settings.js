@@ -30,7 +30,7 @@ const Settings = (props) => {
 
       <main className={classes["settings__container"]}>
         <section className={classes["settings-profile__container"]}>
-          <div className={classes["settings-profile__imgage-container"]}>
+          <div className={classes["settings-profile__image-container"]}>
             <img
               src={`${process.env.REACT_APP_BACKEND_URL}/img/users/${
                 authCtx.user && authCtx.user.photo

@@ -17,6 +17,13 @@ const Feed = () => {
 
   let loadingPending = false;
 
+  const removePost = (postId) => {
+    console.log("the post id is: ", postId);
+    setPosts((prevState) => {
+      return prevState.filter((cur) => cur._id !== postId);
+    });
+  };
+
   useEffect(() => {
     axios({
       url: `${process.env.REACT_APP_BACKEND_URL}/api/v1/posts?page=${curPage}&limit=10`,
@@ -91,6 +98,7 @@ const Feed = () => {
               likes={cur.likes}
               likesCount={cur.noOfLikes}
               commentsCount={cur.noOfComments}
+              removePost={removePost}
             />
           );
         })}
