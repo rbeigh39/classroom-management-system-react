@@ -33,7 +33,6 @@ const Profile = (props) => {
   const user = authCtx.user;
 
   const [profileTab, setProfileTab] = useState("posts");
-  console.log(profileTab);
 
   const [selfCreatedPosts, setSelfCreatedPosts] = useState([]);
   const [likedPosts, setLikedPosts] = useState([]);
