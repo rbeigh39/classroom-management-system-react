@@ -17,8 +17,7 @@
   }
 
   &__header {
-    margin: 1.2rem;
-    margin-top: 2.2rem;
+    margin: 2.2rem 1.2rem 0 1.2rem;
     display: grid;
     grid-template-columns: min-content 1fr max-content;
     grid-column-gap: 1rem;
@@ -131,7 +130,7 @@
     height: 3.4rem;
     width: 3.4rem;
     position: absolute;
-    top: 0;
+    top: -0.8rem;
     right: 0;
     backface-visibility: hidden;
     transition: all 0.2s;
@@ -212,7 +211,6 @@
   }
 
   &__options-list-icon-container {
-    // background-color: orange;
     width: 2.4rem;
     display: flex;
     align-items: center;
