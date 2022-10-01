@@ -20,8 +20,14 @@ const FeedPost = (props) => {
 
   const [hasLiked, setHasLiked] = useState(false);
   const [menuIsChecked, setMenuIsChecked] = useState(false);
+  const [isMyPost, setIsMyPost] = useState(false);
 
   useEffect(() => {
+    // console.log("authCtx userId: ", authCtx.user._id);
+    // console.log("post author id: ", props.userId);
+    // console.log("isMyPost: ", authCtx.user._id === props.userId);
+    setIsMyPost(() => authCtx.user._id === props.userId);
+
     props.likes.forEach((cur) => {
       if (cur.user === authCtx.user._id) setHasLiked(true);
     });
@@ -111,28 +117,30 @@ const FeedPost = (props) => {
           {menuIsChecked && (
             <div className={classes["post-menu__options-container"]}>
               <ul className={classes["post-menu__options-list"]}>
-                <li className={classes["post-menu__options-list-item"]}>
-                  <button
-                    className={`${classes["post-menu__option-button"]} ${classes["post-menu__option-button--danger"]}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      deletePostHandler();
-                    }}
-                  >
-                    <div
-                      className={
-                        classes["post-menu__options-list-icon-container"]
-                      }
+                {isMyPost && (
+                  <li className={classes["post-menu__options-list-item"]}>
+                    <button
+                      className={`${classes["post-menu__option-button"]} ${classes["post-menu__option-button--danger"]}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        deletePostHandler();
+                      }}
                     >
-                      <img
-                        src="/assets/icon_trash-can.svg"
-                        alt="icon delete"
-                        className={classes["post-menu__item-icon"]}
-                      />
-                    </div>
-                    Delete
-                  </button>
-                </li>
+                      <div
+                        className={
+                          classes["post-menu__options-list-icon-container"]
+                        }
+                      >
+                        <img
+                          src="/assets/icon_trash-can.svg"
+                          alt="icon delete"
+                          className={classes["post-menu__item-icon"]}
+                        />
+                      </div>
+                      Delete
+                    </button>
+                  </li>
+                )}
 
                 <li className={classes["post-menu__options-list-item"]}>
                   <button className={classes["post-menu__option-button"]}>

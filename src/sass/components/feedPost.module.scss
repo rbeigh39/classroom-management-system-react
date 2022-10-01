@@ -54,6 +54,7 @@
   }
 
   &__image-container {
+    margin-top: 0.8rem;
     width: 100%;
     backface-visibility: hidden;
     position: relative;
@@ -184,6 +185,7 @@
     font-family: "Inter", sans-serif;
     font-size: 1.5rem;
     width: 100%;
+    min-width: max-content;
     padding: 0.8rem;
     padding-left: 0.4rem;
     display: flex;

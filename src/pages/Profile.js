@@ -147,6 +147,7 @@ const Profile = (props) => {
                 key={cur._id}
                 postId={cur._id}
                 userName={cur.author.name}
+                userId={cur.author._id}
                 userImage={`${process.env.REACT_APP_BACKEND_URL}/img/users/${cur.author.photo}`}
                 onClick={openCommentBar}
                 imageLink={imgLink}
@@ -180,6 +181,7 @@ const Profile = (props) => {
                 key={cur._id}
                 postId={cur._id}
                 userName={cur.author.name}
+                userId={cur.author._id}
                 userImage={`${process.env.REACT_APP_BACKEND_URL}/img/users/${cur.author.photo}`}
                 onClick={openCommentBar}
                 imageLink={imgLink}
